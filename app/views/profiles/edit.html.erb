@@ -1,0 +1,6 @@
+<%= link_to 'Edit', edit_my_profile_path %>
+
+<%= simple_form_for(@profile, url: myprofile_path(@profile), method: :patch) do |f| %>
+  <%= f.input :first_name %>
+  <%= f.submit  %>
+<% end %>

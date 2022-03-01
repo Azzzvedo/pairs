@@ -1,8 +1,20 @@
-<%= simple_form_for @pairing_session do |f| %>
-  <%= f.input :activity %>
-  <%= f.input :address %>
-  <%= f.input :time %>
-  <%= f.input :description %>
 
-  <%= f.button :submit %>
-<% end %>
+<div class="container">
+
+  <%= simple_form_for @pairing_session do |f| %>
+    <%= f.input :activity %>
+      <div style="width: 100%; height: 80vh;"
+        data-controller="mapbox"
+        data-mapbox-markers-value="<%= @markers.to_json %>"
+        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    <%= f.input :address, input_html: { data: { geocoder_target: "address" } },
+                          wrapper_html: { data: { controller: "geocoder",
+                                                geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } }%>
+    <%= f.input :time %>
+    <%= f.input :description %>
+
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+
+</div>

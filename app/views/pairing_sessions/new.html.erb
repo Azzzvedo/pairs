@@ -1,18 +1,25 @@
 
 <div class="container">
-
-  <%= simple_form_for @pairing_session do |f| %>
-    <%= f.input :activity %>
-      <div style="width: 100%; height: 80vh;"
-        data-controller="mapbox"
-        data-mapbox-markers-value="<%= @markers.to_json %>"
-        data-mapbox-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  <div data-controller="new-session">
+    <%= simple_form_for @pairing_session do |f| %>
+      <div data-new-session-target="activity">
+        <%= f.input :activity, collection: PairingSession::ACTIVITIES %>
+        <button data-action="click->new-session#displayAddress" class="btn btn-primary mb-3">Choose</button>
+        <%= render 'activities' %>
       </div>
-    <%= f.input :address %>
-    <%= f.input :time %>
-    <%= f.input :description %>
-
-    <%= f.button :submit %>
-  <% end %>
-
+      <div class="d-none" data-new-session-target="address">
+        <%= render 'map' %>
+        <%= f.input :address %>
+        <button data-action="click->new-session#displayTime" class="btn btn-primary mb-3">Choose</button>
+      </div>
+      <div class="d-none" data-new-session-target="time">
+        <%= f.input :time %>
+        <button data-action="click->new-session#displayDescription" class="btn btn-primary mb-3">Choose</button>
+      </div>
+      <div class="d-none" data-new-session-target="description">
+        <%= f.input :description %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
 </div>

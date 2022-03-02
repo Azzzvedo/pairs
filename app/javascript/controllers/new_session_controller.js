@@ -26,6 +26,7 @@ export default class extends Controller {
   }
   displayPairingSessions() {
     event.preventDefault()
+    this.timeTarget.classList.add("d-none")
     const activities = this.activityTarget.querySelector('fieldset').elements
     const activity = Array.from(activities).find(radio => radio.checked).value;
     const address = this.addressTarget.querySelector('input').value

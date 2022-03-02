@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
-  resources :pairing_sessions, only: %i[index new create]
+  resources :pairing_sessions, only: %i[index new create] do
+    resources :pairing_requests, only: %i[index create]
+  end
 
   get "/myprofile", to: "profiles#show", as: :my_profile
   patch "/myprofile", to: "profiles#update"

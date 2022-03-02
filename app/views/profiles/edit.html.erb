@@ -1,6 +1,22 @@
 <%= link_to 'Edit', edit_my_profile_path %>
 
 <%= simple_form_for(@profile, url: myprofile_path(@profile), method: :patch) do |f| %>
+  <%= f.input :email %>
+    <%= f.submit  %>
+  <%= f.input :reset_password_token %>
+   <%= f.submit  %>
   <%= f.input :first_name %>
-  <%= f.submit  %>
+    <%= f.submit  %>
+  <%= f.input :last_name %>
+    <%= f.submit  %>
+  <%= f.input :address %>
+   <%= f.submit  %>
+  <%= f.input :gender %>
+    <%= f.submit  %>
+  <%= f.input :bio %>
+    <%= f.submit  %>
+  <%= f.input :birth_date %>
+    <%= f.submit  %>
+  <%= f.input :competitiveness %>
+    <%= f.submit  %>
 <% end %>

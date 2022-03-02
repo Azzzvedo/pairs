@@ -5,7 +5,10 @@ class MessagesController < ApplicationController
     @message.chat = @chat
     @message.user = current_user
     if @message.save
-      redirect_to chat_path(@chat, anchor: "message-#{@message.id}")
+      ChatChannel.broadcast_to(
+        @chat, render_to_string(partial: 'message', locals: { message: @message })
+      )
+      head :ok
     else
       render 'chats/show'
     end

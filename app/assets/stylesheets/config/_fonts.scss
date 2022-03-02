@@ -1,9 +1,12 @@
 // Import Google fonts
-@import url('https://fonts.googleapis.com/css2?family=Londrina+Sketch&family=Londrina+Solid:wght@300&family=Open+Sans:wght@300&display=swap');
+
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Londrina+Solid:wght@300;400&family=Work+Sans:wght@300;400;500;900&display=swap');
 
 // Define fonts for body and headers
-$body-font: "Open Sans", "Helvetica", "sans-serif";
-$headers-font: "Londrina Solid", "Helvetica", "sans-serif";
+$body-font: "Work Sans", "Helvetica", "sans-serif";
+$headers-font: "Londrina", "Helvetica", "sans-serif";
+
 
 // To use a font file (.woff)Londrina Solid
 //   src: font-url('FontFile.eot');

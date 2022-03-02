@@ -1,1 +1,42 @@
+
+<div class="container">
+  <div data-controller="new-session">
+    <%= simple_form_for @pairing_session, data: { new_session_target: "form" } do |f| %>
+      <div data-new-session-target="activity">
+        <%= f.input :activity,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'activity-wrapper',
+            item_wrapper_class: 'activity-item',
+            input_html: {class: 'activity-selector'},
+            collection: PairingSession::ACTIVITIES %>
+        <button data-action="click->new-session#displayAddress" class="btn btn-primary mb-3">Choose</button>
+        <%= render 'activities' %>
+      </div>
+      <div class="d-none" data-new-session-target="address">
         <%= render 'map' %>
+        <%= f.input :address %>
+        <button data-action="click->new-session#displayTime" class="btn btn-primary mb-3">Choose</button>
+      </div>
+      <div class="d-none" data-new-session-target="time">
+        <%= f.input :time,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'activity-wrapper',
+            item_wrapper_class: 'activity-item',
+            input_html: {class: 'activity-selector'},
+            collection: PairingSession::TIMES %>
+        <button data-action="click->new-session#displayPairingSessions" class="btn btn-primary mb-3">Choose</button>
+      </div>
+      <div class="d-none" data-new-session-target="description">
+        <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
+        <%= f.input :description %>
+        <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
+      </div>
+    <% end %>
+
+    <div data-new-session-target="container">
+
+    </div>
+  </div>
+</div>

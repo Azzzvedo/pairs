@@ -1,16 +1,13 @@
-<div class=container>
+<div class="container" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>">
   <h1><%= @other.email %></h1>
-  <div>
+  <div class="messages" data-chat-subscription-target="messages">
     <% @chat.messages.each do |message| %>
-    <div class="message  <%= message.user == current_user ? 'current' : 'other' %>">
-      <p><%= message.content %></p>
-    </div>
+      <%= render 'messages/message', message: message %>
     <% end %>
-  </div>
-  <div style="text-align: right;">
-    <%= simple_form_for [@chat, @message] do |f| %>
-      <%= f.input :content, label: false, autofocus: true, placeholder: "Message here...", class: 'fill-content' %>
+    </div>
+
+    <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form"}} do |f| %>
+      <%= f.input :content, label: false, autofocus: true, placeholder: "Say something...", class: 'fill-content' %>
       <%= f.submit "Send" %>
     <% end %>
-  </div>
 </div>

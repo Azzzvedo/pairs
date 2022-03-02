@@ -4,7 +4,13 @@
   <div data-controller="new-session">
     <%= simple_form_for @pairing_session do |f| %>
       <div data-new-session-target="activity">
-        <%= f.input :activity, collection: PairingSession::ACTIVITIES %>
+        <%= f.input :activity,
+            as: :radio_buttons,
+            collection_wrapper_tag: 'div',
+            collection_wrapper_class: 'activity-wrapper',
+            item_wrapper_class: 'activity-item',
+            input_html: {class: 'activity-selector'},
+            collection: PairingSession::ACTIVITIES %>
         <button data-action="click->new-session#displayAddress" class="btn btn-primary mb-3">Choose</button>
         <%= render 'activities' %>
       </div>

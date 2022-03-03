@@ -10,4 +10,8 @@ class ChatsController < ApplicationController
       @other = @chat.sender
     end
   end
+
+  def index
+    @chats = Chat.all
+  end
 end

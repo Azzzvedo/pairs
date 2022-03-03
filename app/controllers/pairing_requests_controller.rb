@@ -6,10 +6,4 @@ class PairingRequestsController < ApplicationController
 
   def destroy
   end
-
-  private
-
-  def pairing_request_params
-
-  end
 end

@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2022_03_02_141921) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-
+    t.datetime "datetime"
     t.integer "time"
     t.index ["user_id"], name: "index_pairing_sessions_on_user_id"
   end

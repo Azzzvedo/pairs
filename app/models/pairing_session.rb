@@ -1,6 +1,6 @@
 class PairingSession < ApplicationRecord
   belongs_to :user
-  has_many :pairing_requests
+  has_many :pairing_requests, dependent: :destroy
 
   ACTIVITIES = %w[climbing jai\ alai fencing]
   TIMES = [0, 15, 30, 45, 60]

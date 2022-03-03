@@ -12,4 +12,10 @@ class PairingSession < ApplicationRecord
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+  after_validation :time_to_datetime
+
+  def time_to_datetime
+    self.datetime = DateTime.now + (self.time.to_f / (24 * 60))
+  end
+
 end

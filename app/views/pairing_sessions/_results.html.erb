@@ -1,14 +1,20 @@
-<div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
-  <% pairing_sessions.each do |pairing_session| %>
-    <div class="pairing-session-card">
-      <h4><%= "#{pairing_session.user.first_name}'s #{pairing_session.activity} session!" %>
-      <p><%= pairing_session.description %></p>
-      <p><%= pairing_session.time %></p>
-      <p><%= pairing_session.address %></p>
-      <div class="pairing-session-button-container">
-        <button class="pairing-session-card-reject-button">Reject</button>
-        <button class="pairing-session-card-accept-button">Accept</button>
+<% if pairing_sessions %>
+  <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
+    <% pairing_sessions.each do |pairing_session| %>
+      <div class="pairing-session-card">
+        <h4><%= "#{pairing_session.user.first_name}'s #{pairing_session.activity} session!" %>
+        <p><%= pairing_session.description %></p>
+        <p><%= pairing_session.time %></p>
+        <p><%= pairing_session.address %></p>
+        <div class="pairing-session-button-container">
+          <button class="pairing-session-card-reject-button">Reject</button>
+          <button class="pairing-session-card-accept-button">Accept</button>
+        </div>
       </div>
-    </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
+  <%= f.input :description %>
+  <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
+<% end %>

@@ -1,9 +1,9 @@
 class PairingSessionsController < ApplicationController
   def index
     if params[:activity] && params[:time] && params[:address]
-      @pairing_sessions = PairingSession.where.not(user: current_user)
+      time_range = (Time.now..Time.now + (params[:time].to_i * 60))
+      @pairing_sessions = PairingSession.where.not(user: current_user).where(activity: params[:activity]).where(datetime: time_range)
       @pairing_sessions = @pairing_sessions.select do |pairing_session|
-        pairing_session.activity == params[:activity]
         Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.address) < 10
       end
     else

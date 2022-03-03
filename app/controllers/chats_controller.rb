@@ -20,8 +20,4 @@ class ChatsController < ApplicationController
   def partner(chat)
     current_user.id == chat.sender_id ? chat.recipient : chat.sender
   end
-
-  def index
-    @chats = Chat.all
-  end
 end

@@ -1,0 +1,22 @@
+.message {
+  padding: 6px 20px;
+  border-radius: 6px 0 6px 0;
+  position: relative;
+  background: rgb(0, 210, 132);
+  border: 1px black;
+  color: rgb(5, 56, 66);
+  font-size: 16px;
+  margin: 15px;
+  box-shadow: 15px, 20px;
+}
+.current {
+  align-items: center;
+  text-align: right;
+  color: rgb(0, 210, 132);
+  margin-left: 100px;
+  background: rgb(5, 56, 66);
+}
+
+.other {
+  margin-right: 100px;
+}

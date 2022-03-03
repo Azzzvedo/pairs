@@ -1,13 +1,20 @@
 class ChatsController < ApplicationController
+
+  def index
+    @chats = Chat.where(sender: current_user).or(Chat.where(recipient: current_user))
+    @chats.map { |chat| chat.partner = partner(chat) }
+  end
+
   def show
     @chat = Chat.find(params[:id])
     @message = Message.new
-    if current_user == @chat.sender
-      @owner = @chat.sender
-      @other = @chat.recipient
-    else
-      @owner = @chat.recipient
-      @other = @chat.sender
-    end
+    @partner = partner(@chat)
   end
+
+  private
+
+  def partner(chat)
+    current_user.id == chat.sender_id ? chat.recipient : chat.sender
+  end
+
 end

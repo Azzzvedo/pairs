@@ -1,0 +1,6 @@
+<h1>My Pairs</h1>
+<ul>
+  <% @chats.each do |chat| %>
+    <li><%=link_to chat.partner.email, chat_path(chat) %></li>
+  <% end %>
+</ul>

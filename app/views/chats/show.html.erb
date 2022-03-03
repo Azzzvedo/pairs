@@ -1,5 +1,5 @@
 <div class="container" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>" data-current-user-id="<%= current_user.id %>">
-  <h1><%= @other.email %></h1>
+  <h1><%= @partner.email %></h1>
   <div class="messages" data-chat-subscription-target="messages">
     <% @chat.messages.each do |message| %>
       <%= render 'messages/message', message: message %>

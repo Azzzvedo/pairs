@@ -8,4 +8,5 @@ class User < ApplicationRecord
   has_many :pairing_requests
   has_many :messages
   has_many :chats
+  has_one_attached :photo
 end

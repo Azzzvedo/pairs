@@ -7,7 +7,7 @@
     <h3>Description Here</h3>
         <div class="sign-in" >
           <% if user_signed_in? %>
-          <%= link_to "New Pairing Session", new_pairing_session_path, class: 'home-btn'%>
+          <%= link_to "New Pairing Session", pairing_sessions_path, class: 'home-btn'%>
           <% else %>
           <ul>
           <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>

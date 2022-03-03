@@ -9,27 +9,32 @@ export default class extends Controller {
     // console.log(this.inputTargets.indexOf(this.inputTarget))
   }
 
-  displayAddress() {
+  displayAddress(event) {
     event.preventDefault()
     this.activityTarget.classList.add("d-none")
     this.addressTarget.classList.remove("d-none")
   }
-  displayTime() {
+
+  displayTime(event) {
     event.preventDefault()
     this.addressTarget.classList.add("d-none")
     this.timeTarget.classList.remove("d-none")
   }
-  displayDescription() {
+
+  displayDescription(event) {
     event.preventDefault()
     this.timeTarget.classList.add("d-none")
     this.descriptionTarget.classList.remove("d-none")
   }
-  displayPairingSessions() {
+
+  displayPairingSessions(event) {
     event.preventDefault()
     this.timeTarget.classList.add("d-none")
     const activities = this.activityTarget.querySelector('fieldset').elements
     const activity = Array.from(activities).find(radio => radio.checked).value;
+
     const address = this.addressTarget.querySelector('input').value
+
     const times = this.timeTarget.querySelector('fieldset').elements
     const time = Array.from(times).find(radio => radio.checked).value;
 
@@ -40,10 +45,7 @@ export default class extends Controller {
     })
       .then(response => response.json())
       .then((data) => {
-      console.log("I am here!")
-      console.log(data)
       this.containerTarget.innerHTML = data.results
       })
   }
-
 }

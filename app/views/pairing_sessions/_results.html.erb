@@ -1,16 +1,23 @@
 <% if pairing_sessions %>
   <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
     <% pairing_sessions.each do |pairing_session| %>
-      <div class="pairing-session-card">
-        <h4><%= "#{pairing_session.user.first_name}'s #{pairing_session.activity} session!" %>
-        <p><%= pairing_session.description %></p>
-        <p><%= pairing_session.time %></p>
-        <p><%= pairing_session.address %></p>
-        <div class="pairing-session-button-container">
-          <button class="pairing-session-card-reject-button">Reject</button>
-          <button class="pairing-session-card-accept-button">Accept</button>
+
+        <div class="pairing-session-card" data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
+          <h4><%= "#{pairing_session.user.first_name}'s #{pairing_session.activity} session!" %>
+          <p><%= pairing_session.description %></p>
+          <p><%= pairing_session.time %></p>
+          <p><%= pairing_session.address %></p>
+          <div class="pairing-session-button-container">
+
+
+            <button class="pairing-session-card-reject-button">Reject</button>
+            <button data-action="click->session-card#sendRequest"  class="pairing-session-card-accept-button">Request pairing</button>
+          </div>
+          <div data-session-card-target="form" class="d-none">
+            <%= render 'pairing_requests/form', pairing_session: pairing_session, pairing_request: pairing_request %>
+          </div>
         </div>
-      </div>
+
     <% end %>
   </div>
 <% else %>

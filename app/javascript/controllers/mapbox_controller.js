@@ -10,17 +10,17 @@ export default class extends Controller {
   }
 
   connect() {
-    mapboxgl.accessToken = this.apiKeyValue
+    // mapboxgl.accessToken = this.apiKeyValue
 
-    this.map = new mapboxgl.Map({
-      container: this.element,
-      style: "mapbox://styles/arabella22/cl01ee19k001814n294bapa8d"
-    })
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    // this.map = new mapboxgl.Map({
+    //   container: this.element,
+    //   style: "mapbox://styles/arabella22/cl01ee19k001814n294bapa8d"
+    // })
+    // this.#addMarkersToMap()
+    // this.#fitMapToMarkers()
 
-    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl }))
+    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+    //   mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {

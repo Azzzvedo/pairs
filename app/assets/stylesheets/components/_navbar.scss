@@ -1,16 +1,22 @@
-.navbar-lewagon {
-  justify-content: space-between;
-  background: white;
-  position: fixed;
-  height: 100px;
+.navbar {
+  position: sticky;
+  text-align: center;
   bottom: 0;
   width: 100%;
+  background-color: $tiber;
+  color: $emerald;
+  display: flex;
+  height: 100px;
+
+  li {
+    display: inline;
+    justify-content: space-evenly;
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
-
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.fas {
+  color : $emerald;
+  list-style-type: none;
+  align-content: center;
+  padding: 24px;
 }

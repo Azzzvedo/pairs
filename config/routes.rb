@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'pairing_requests/create'
+  get 'pairing_requests/destroy'
   devise_for :users
   root to: 'pages#home'
   resources :chats, only: [:show, :create, :index] do

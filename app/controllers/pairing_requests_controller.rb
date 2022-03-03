@@ -1,4 +1,8 @@
 class PairingRequestsController < ApplicationController
+  def index
+    @pairing_sessions = current_user.pairing_sessions
+  end
+
   def create
     @pairing_request = PairingRequest.new(pairing_request_params)
     @pairing_session = PairingSession.find(params[:pairing_session_id])

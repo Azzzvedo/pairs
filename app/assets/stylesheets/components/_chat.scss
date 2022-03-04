@@ -7,11 +7,25 @@ body {
   margin-right: 48px;
   border: 1px solid white;
   padding: 24px;
-
+  border-radius: 50px;
 }
 
 .chat-form {
   margin-bottom: 5px;
   text-align: right;
   align-items: center;
+}
+
+.chat-button {
+  background-color: rgb(0, 210, 132);
+  color: rgb(5, 56, 66);
+  border-radius: 50px;
+}
+
+.mb-3.text.optional.message_content {
+  border: 1px solid rgb(0, 210, 132);
+}
+
+.form-control.text.optional {
+  border: 1px solid rgb(0, 210, 132);
 }

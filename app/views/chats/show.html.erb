@@ -7,8 +7,8 @@
   </div>
   <div class="chat-form">
     <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form"}} do |f| %>
-      <%= f.input :content, label: false, autofocus: true, placeholder: "Say something...", class: 'fill-content' %>
-      <%= f.submit "Send" %>
+      <%= f.input :content, label: false, autofocus: true, placeholder: "Say something...", class: 'chat-content' %>
+      <%= f.button :submit, 'Send', class: "chat-button" %>
     <% end %>
   </div>
 </div>

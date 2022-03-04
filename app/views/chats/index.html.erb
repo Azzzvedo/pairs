@@ -1,8 +1,10 @@
 <div class="container">
-  <h1>My Pairs</h1>
+  <h1 style="text-align: center;" >My Pairs</h1>
   <ul>
     <% @chats.each do |chat| %>
-      <div class="chat-card"><li><%=link_to chat.partner.first_name, chat_path(chat) %></li></div>
+      <a href="<%= chat_path(chat) %>">
+      <div class="chat-card"><li><%=chat.partner.first_name %></li></div>
+      </a>
     <% end %>
   </ul>
 </div>

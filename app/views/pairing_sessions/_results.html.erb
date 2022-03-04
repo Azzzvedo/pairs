@@ -1,5 +1,6 @@
 <% if pairing_sessions %>
   <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
+    <h4 class="text-center mt-3">Here are your possible pairs!</h4>
     <% pairing_sessions.each do |pairing_session| %>
 
         <div class="pairing-session-card" data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
@@ -22,6 +23,4 @@
   </div>
 <% else %>
   <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
-  <%= f.input :description %>
-  <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
 <% end %>

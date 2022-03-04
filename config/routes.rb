@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :pairing_sessions, only: %i[index new create] do
-    resources :pairing_requests, only: %i[create]
+    resources :pairing_requests, only: %i[create update]
   end
 
   resources :pairing_requests, only: %i[index show]

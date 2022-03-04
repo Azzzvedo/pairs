@@ -13,13 +13,15 @@
   </head>
 
   <body>
+
     <div class="container px-4 py-4" >
       <%= yield %>
+      <%= render 'shared/flashes' %>
     </div>
-    <%= render 'shared/flashes' %>
     <% unless action_name == "home" %>
       <%= render 'shared/navbar' %>
     <% end %>
+      
 
   </body>
 </html>

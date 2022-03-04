@@ -5,9 +5,18 @@ body {
   margin-top: 16px;
   margin-bottom: 8px;
   margin-right: 48px;
-  border: 1px solid white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   padding: 24px;
-  border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  h5{
+    padding-top: 0.5rem;
+  }
+}
+
+.chat-picture {
+  border-radius: 50%;
 }
 
 .chat-form {

@@ -11,8 +11,8 @@
           <div class="pairing-session-button-container">
 
 
-            <button class="pairing-session-card-reject-button">Reject</button>
-            <button data-action="click->session-card#sendRequest"  class="pairing-session-card-accept-button">Request pairing</button>
+            <button class="select-btn mb-3">Reject</button>
+            <button data-action="click->session-card#sendRequest"  class="select-btn mb-3">Request pairing</button>
           </div>
           <div data-session-card-target="form" class="d-none">
             <%= render 'pairing_requests/form', pairing_session: pairing_session, pairing_request: pairing_request %>

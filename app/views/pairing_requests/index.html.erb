@@ -7,7 +7,7 @@
       <p><%= pairing_request.user.first_name %> wants to pair up!</p>
       <div class="pairing-request-button-container">
         <%= simple_form_for [pairing_request.pairing_session, pairing_request] do |f| %>
-          <%= f.input :approved %>
+          <%= f.input :approved, label: 'approve' %>
           <%= f.button :submit %>
         <% end %>
       </div>

@@ -1,8 +1,7 @@
 class PairingRequestsController < ApplicationController
   def index
-    @pairing_requests = PairingRequest.all
-    # PairingRequest.joins(:pairing_session).where(pairing_session: { user: current_user })
-
+    @user_pairing_sessions = PairingSession.where(user: current_user)
+    @pairing_requests = PairingRequest.where(pairing_sessions: @user_pairing_sessions).where(approved: nil)
   end
 
   def create_chat

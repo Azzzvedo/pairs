@@ -1,4 +1,5 @@
-<%= @pairing_request.introduction %>
-<%= @pairing_request.user.email %>
-<%= @pairing_request.pairing_session.activity %>
-<%= @pairing_request.pairing_session.user.email %>
+
+
+<h4>You have a <%= @pairing_request.pairing_session.activity %> request</h4>
+<h4><%= @pairing_request.user.first_name.capitalize %> wants to join up with you!</h4>
+<p><%= @pairing_request.introduction %></p>

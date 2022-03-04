@@ -1,6 +1,8 @@
 class PairingRequestsController < ApplicationController
   def index
-    @pairing_sessions = current_user.pairing_sessions
+    @pairing_requests = PairingRequest.all
+    # PairingRequest.joins(:pairing_session).where(pairing_session: { user: current_user })
+
   end
 
   def create_chat
@@ -20,6 +22,18 @@ class PairingRequestsController < ApplicationController
     end
   end
 
+  def update
+    @pairing_request = PairingRequest.find(params[:id])
+    approve(@pairing_request)
+    @pairing_session = @pairing_request.pairing_session
+    # inactivate pairing session?
+    @chat = Chat.new
+    @chat.sender = @pairing_request.user
+    @chat.recipient = @pairing_session.user
+    @chat.save
+    redirect_to chat_path(@chat)
+  end
+
   def show
     @pairing_request = PairingRequest.find(params[:id])
   end
@@ -28,6 +42,10 @@ class PairingRequestsController < ApplicationController
   end
 
   private
+
+  def approve(pairing_request)
+    pairing_request.approved = true
+  end
 
   def pairing_request_params
     params.require(:pairing_request).permit(:introduction)

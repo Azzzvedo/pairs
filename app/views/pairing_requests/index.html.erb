@@ -1,8 +1,18 @@
-<h1>My Pairing Requests</h1>
-  <% @pairing_sessions.each do |pairing_session| %>
-<ul><%= pairing_session.activity.upcase%>
-    <% pairing_session.pairing_requests.each do |pairing_request| %>
-    <li><%= pairing_request.user.first_name %></li>
-    <% end %>
-</ul>
+<h1 class="mb-3">My Pairing Requests</h1>
+
+<% if @pairing_requests.count > 0 %>
+  <h3> Requests</h3>
+  <% @pairing_requests.each do |pairing_request| %>
+    <div class="pairing-request-card">
+      <p><%= pairing_request.user.first_name %> wants to pair up!</p>
+      <div class="pairing-request-button-container">
+        <%= simple_form_for [pairing_request.pairing_session, pairing_request] do |f| %>
+          <%= f.input :approved %>
+          <%= f.button :submit %>
+        <% end %>
+      </div>
+    </div>
   <% end %>
+<% else %>
+  <h3> No requests yet. Check back later!</h3>
+<% end %>

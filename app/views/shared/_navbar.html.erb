@@ -1,7 +1,7 @@
 <!-- This div is centered and takes 6 columns -->
 
 <div class="navbar">
-  <ul class="fa-ul">
+  <ul class="p-0">
     <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to my_profile_path(current_user.id) do %>
@@ -13,11 +13,17 @@
           <i class="fas fa-table-tennis fa-2x"></i>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%# <%= link_to pairing_session_pairing_requests_path(@pairing_session, @pairing_request.id) do %>
-          <i class="fas fa-reply fa-2x"></i>
-        <%# <% end %>
-      </li>
+        <% if @pairing_request %>
+          <li class="nav-item">
+            <%= link_to pairing_requests_path do %>
+              <i class="fas fa-user-friends fa-2x"></i>
+            <% end %>
+        <% else %>
+          <%= link_to pairing_sessions_path do %>
+              <i class="fas fa-user-friends fa-2x"></i>
+              <% end %>
+        <% end %>
+          </li>
       <li class="nav-item">
         <%= link_to chats_path do %>
           <i class="fas fa-comment fa-2x"></i>

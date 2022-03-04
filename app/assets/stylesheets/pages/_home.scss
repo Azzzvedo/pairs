@@ -1,13 +1,15 @@
 // Specific CSS for your home-page
 h1 {
-  text-shadow: 0px 4px 4px #00000025;
+  text-shadow: 0px 4px 4px #00000050;
+  font-family: 'Londrina Solid';
+  color: $emerald;
 }
 
 h3{
-  font-family: 'Londrina Sketch';
-  text-shadow: 0px 4px 4px #00000025;
+  text-shadow: 0px 4px 4px #00000050;
   color: #FFFFFF;
 }
+
 
 ul{
   list-style-type: none;
@@ -27,4 +29,5 @@ a:hover{
   align-items: center;
   flex-wrap: nowrap;
   min-height: 100vh;
+  justify-content: center;
 }

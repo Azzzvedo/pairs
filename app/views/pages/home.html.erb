@@ -1,10 +1,12 @@
-<div class="container" background-color='white'>
+<style>body {background-color: #053842;}</style>
+
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-12 col-lg-6">
+
     <div class = "flex">
       <!-- This div is centered and takes 6 columns -->
     <h1>PAIRS</h1>
-    <h3>Description Here</h3>
+    <%# <h3>Description Here</h3> %>
         <div class="sign-in" >
           <% if user_signed_in? %>
           <%= link_to "New Pairing Session", pairing_sessions_path, class: 'home-btn'%>
@@ -16,7 +18,6 @@
           <% end %>
         </div>
       <!-- This div is centered and takes 6 columns -->
-    </div>
     </div>
   </div>
 </div>

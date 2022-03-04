@@ -4,27 +4,26 @@
     <%= simple_form_for @pairing_session, data: { new_session_target: "form" } do |f| %>
       <div data-controller="session-form">
         <div data-new-session-target="activity">
-          <%= f.input :activity,
+          <%= f.input :activity, label: 'What are you in the mood for?',
               as: :radio_buttons,
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'activity-wrapper',
               item_wrapper_class: 'activity-item',
               input_html: {class: 'activity-selector'},
               collection: PairingSession::ACTIVITIES %>
-          <button data-action="click->new-session#displayAddress" class="btn btn-primary mb-3">Choose</button>
-          <%= render 'activities' %>
+          <button data-action="click->new-session#displayAddress" class="select-btn mb-3 ">Choose</button>
         </div>
       </div>
       <div data-controller="session-form">
         <div class="d-none" data-new-session-target="address">
 
-          <%= f.input :address %>
-          <button data-action="click->new-session#displayTime" class="btn btn-primary mb-3">Choose</button>
+          <%= f.input :address, label: 'Where abouts?' %>
+          <button data-action="click->new-session#displayTime" class="select-btn mb-3">Choose</button>
         </div>
       </div>
       <div data-controller="session-form">
         <div class="d-none" data-new-session-target="time">
-          <%= f.input :time,
+          <%= f.input :time, label: 'How many minutes until you\'re ready?',
               as: :radio_buttons,
               collection_wrapper_tag: 'div',
               collection_wrapper_class: 'activity-wrapper',

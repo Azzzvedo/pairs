@@ -16,9 +16,7 @@
 }
 
 .activity-wrapper {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
+
 }
 
 .activity-item {
@@ -31,28 +29,40 @@
 }
 
 .activity-selector + label {
-  display: block;
-  cursor: pointer;
-  box-sizing: border-box;
-  width: 100%;
-  font-size: 12px;
-  text-align: left;
-  padding: 10px 10px 30px 10px;
-  border: 1px solid #EAEAEA;
-  border-radius: 4px;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem;
+  height: 4rem;
+  background-color: #AEEDD8;
+  border-radius: 1rem;
+  text-decoration: none;
+  color: tiber;
+  font-family: 'Londrina Solid';
+  font-size: 1.5rem;
 }
 
 .activity-selector:checked + label {
-  color: white !important;
+  color: tiber !important;
+  background-color: #83e7c6;
 }
 
-
-#snippet_activity_ruby {
-  color: #FD1015;
+.select-btn{
+  background-color: #FFFFFF;
+  color: $emerald;
+  padding: 15px 20px;
+  border-radius: 6px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 24px;
+  font-weight: bold;
+  transition: transform .2s;
 }
 
-#snippet_activity_ruby:checked {
-  background-color: #FD1015;
-  border-color: #FD1015;
+.select-btn:hover{
+  background-color: $emerald;
+  color: #FFFFFF;
+  transform: scale(1.1);
 }

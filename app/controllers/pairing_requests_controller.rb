@@ -14,11 +14,8 @@ class PairingRequestsController < ApplicationController
     @pairing_session = PairingSession.find(params[:pairing_session_id])
     @pairing_request.pairing_session = @pairing_session
     @pairing_request.user = current_user
-    if @pairing_request.save
-      redirect_to pairing_request_path(@pairing_request)
-    else
-      render 'pairing_session/index'
-    end
+    @pairing_request.save
+    render nothing: true
   end
 
   def update
@@ -29,8 +26,11 @@ class PairingRequestsController < ApplicationController
     @chat = Chat.new
     @chat.sender = @pairing_request.user
     @chat.recipient = @pairing_session.user
-    @chat.save
-    redirect_to chat_path(@chat)
+    if @chat.save
+      redirect_to chat_path(@chat)
+    else
+      render 'pairing_sessions'
+    end
   end
 
   def show

@@ -1,48 +1,28 @@
-
-<div class="container">
-  <div data-controller="new-session">
-    <%= simple_form_for @pairing_session, data: { new_session_target: "form" } do |f| %>
-      <div data-controller="session-form">
-        <div data-new-session-target="activity">
-          <%= f.input :activity, label: 'What are you in the mood for?',
-              as: :radio_buttons,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'activity-wrapper',
-              item_wrapper_class: 'activity-item',
-              input_html: {class: 'activity-selector'},
-              collection: PairingSession::ACTIVITIES %>
-          <button data-action="click->new-session#displayAddress" class="select-btn mb-3 ">Choose</button>
-        </div>
+<div data-controller="new-session">
+  <%= simple_form_for @pairing_session, data: { new_session_target: "form" } do |f| %>
+    <div data-controller="session-form">
+      <div data-new-session-target="activity" data-action="activityEvent->new-session#handleEvent">
+        <div class="d-none"><%= f.input :activity %></div>
+        <%= render 'activities' %>
       </div>
-      <div data-controller="session-form">
-        <div class="d-none" data-new-session-target="address">
-
-          <%= f.input :address, label: 'Where abouts?' %>
-          <button data-action="click->new-session#displayTime" class="select-btn mb-3">Choose</button>
-        </div>
-      </div>
-      <div data-controller="session-form">
-        <div class="d-none" data-new-session-target="time">
-          <%= f.input :time, label: 'How many minutes until you\'re ready?',
-              as: :radio_buttons,
-              collection_wrapper_tag: 'div',
-              collection_wrapper_class: 'activity-wrapper',
-              item_wrapper_class: 'activity-item',
-              input_html: {class: 'activity-selector'},
-              collection: PairingSession::TIMES %>
-          <button data-action="click->new-session#displayPairingSessions" class="btn btn-primary mb-3">Choose</button>
-        </div>
-      </div>
-      <div class="d-none" data-new-session-target="description">
-        <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
-        <%= f.input :description %>
-        <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
-      </div>
-
-    <% end %>
-
-    <div data-new-session-target="container">
-
     </div>
-  </div>
+    <div data-controller="session-form">
+      <div class="d-none" data-new-session-target="address">
+        <%= f.input :address, label: 'Where abouts?' %>
+        <button data-action="click->new-session#displayTime" class="select-btn mb-3">Choose</button>
+      </div>
+    </div>
+    <div data-controller="session-form">
+      <div class="d-none" data-new-session-target="time">
+        <%= f.input :datetime, html5: true %>
+        <button data-action="click->new-session#displayPairingSessions" class="btn btn-primary mb-3">Choose</button>
+      </div>
+    </div>
+    <div class="d-none" data-new-session-target="description">
+      <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
+      <%= f.input :description %>
+      <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
+    </div>
+  <div data-new-session-target="container"></div>
+  <% end %>
 </div>

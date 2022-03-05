@@ -14,9 +14,13 @@
     display: inline;
     justify-content: space-evenly;
   }
+
+  a {
+    text-decoration: none;
+  }
 }
 
-.fas {
+.fas-items {
   color : $emerald;
   list-style-type: none;
   align-content: center;

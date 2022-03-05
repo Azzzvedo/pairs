@@ -9,8 +9,19 @@ export default class extends Controller {
     // console.log(this.inputTargets.indexOf(this.inputTarget))
   }
 
-  displayAddress(event) {
+  handleEvent(event) {
     event.preventDefault()
+    const activity = event.detail.activity
+    this.activityTarget.querySelector('input').setAttribute('value', activity)
+    // let message = ev.detail.message;
+    // this.activityTarget.setAttribute('value', activity);
+    this.activityTarget.classList.add("d-none")
+    this.addressTarget.classList.remove("d-none")
+    // this.messageTarget.textContent = `Message from child: ${message}`;
+    }
+
+  displayAddress() {
+    // event.preventDefault()
     this.activityTarget.classList.add("d-none")
     this.addressTarget.classList.remove("d-none")
   }
@@ -30,13 +41,10 @@ export default class extends Controller {
   displayPairingSessions(event) {
     event.preventDefault()
     this.timeTarget.classList.add("d-none")
-    const activities = this.activityTarget.querySelector('fieldset').elements
-    const activity = Array.from(activities).find(radio => radio.checked).value;
-
+    const activity = this.activityTarget.querySelector('input').value
     const address = this.addressTarget.querySelector('input').value
-
-    const times = this.timeTarget.querySelector('fieldset').elements
-    const time = Array.from(times).find(radio => radio.checked).value;
+    const time = this.timeTarget.querySelector('input').value
+    // const time = Array.from(times).find(radio => radio.checked).value;
 
     fetch(this.formTarget.action + "?" + new URLSearchParams({ "address": address, "activity": activity, "time": time }), {
       method: "GET",

@@ -1,6 +1,9 @@
-
 <% PairingSession::ACTIVITIES.each do |activity| %>
-  <a  href="#" class="selector-card">
-    <%= activity.capitalize %>
-  </a>
+  <div data-controller="activities">
+      <div class="selector-card d-flex justify-content-around" data-action="click->activities#selectActivity" >
+        <div class="logo-wrapper"><p class="logo ms-3"><%= PairingSession::ACTIVITY_LOGOS[activity.to_sym] %></p></div>
+        <div class="name-wrapper"><h1 data-activities-target="name"><%= activity.capitalize %></h1></div>
+      </div>
+    </a>
+  </div>
 <% end %>

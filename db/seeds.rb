@@ -8,7 +8,7 @@
 require 'faker'
 require "open-uri"
 require "nokogiri"
-require "pry"
+# require "pry"
 
 LOCATIONS = ["Hyde Park", "Regents Park", "Primrose Hill", "Richmond Park", "Victoria Park"]
 ACTIVITIES = %w[climbing tennis fencing]

@@ -5,7 +5,6 @@
       <div><%= cl_image_tag @partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
     <% end %>
   </div>
-  </div>
   <div class="messages" data-chat-subscription-target="messages">
     <% @chat.messages.each do |message| %>
       <%= render 'messages/message', message: message %>

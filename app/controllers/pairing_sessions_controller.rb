@@ -13,7 +13,7 @@ class PairingSessionsController < ApplicationController
         {
           lat: pairing_session.latitude,
           lng: pairing_session.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
+          # info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
           image_url: helpers.asset_url("fire-flame.svg")
         }
       end
@@ -43,6 +43,6 @@ class PairingSessionsController < ApplicationController
   private
 
   def pairing_session_params
-    params.require(:pairing_session).permit(:activity, :address, :time, :description)
+    params.require(:pairing_session).permit(:activity, :address, :time, :description, :datetime)
   end
 end

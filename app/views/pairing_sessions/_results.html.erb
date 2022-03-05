@@ -2,23 +2,40 @@
   <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
     <h4 class="text-center mt-3">Here are your possible pairs!</h4>
     <% pairing_sessions.each do |pairing_session| %>
-
         <div class="pairing-session-card" data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
           <h4><%= "#{pairing_session.user.first_name}'s #{pairing_session.activity} session!" %>
           <p><%= pairing_session.description %></p>
           <p><%= pairing_session.time %></p>
           <p><%= pairing_session.address %></p>
-          <div class="pairing-session-button-container">
 
+            <div class="pairing-session-button-container">
+              <button class="select-btn mb-3">Reject</button>
+              <button data-action="click->session-card#sendRequest" data-toggle="modal" data-target="#exampleModal" class="select-btn-affirmative mb-3">Pair</button>
+            </div>
 
-            <button class="select-btn mb-3">Reject</button>
-            <button data-action="click->session-card#sendRequest"  class="select-btn mb-3">Request pairing</button>
-          </div>
-          <div data-session-card-target="form" class="d-none">
-            <%= render 'pairing_requests/form', pairing_session: pairing_session, pairing_request: pairing_request %>
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content modal-position">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Send a short introduction!</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+
+                  <%= simple_form_for [pairing_session, @pairing_request] do |f| %>
+                    <%= f.input :introduction, label: false %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <%= f.submit 'Send request', class: "btn btn-primary" %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-
     <% end %>
   </div>
 <% else %>

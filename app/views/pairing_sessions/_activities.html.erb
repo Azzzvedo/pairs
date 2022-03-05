@@ -1,6 +1,8 @@
-
 <% PairingSession::ACTIVITIES.each do |activity| %>
-  <a  href="#" class="selector-card">
-    <%= activity.capitalize %>
-  </a>
+  <div data-controller="activities">
+      <div class="selector-card" data-action="click->activities#selectActivity" data-activities-target="name">
+        <h3><%= activity.capitalize %></h3>
+      </div>
+    </a>
+  </div>
 <% end %>

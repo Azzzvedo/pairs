@@ -2,7 +2,7 @@ class PairingSession < ApplicationRecord
   belongs_to :user
   has_many :pairing_requests, dependent: :destroy
 
-  ACTIVITIES = %w[climbing tennis fencing]
+  ACTIVITIES = %w[climbing tennis squash golf running badminton]
   TIMES = [0, 15, 30, 45, 60]
 
   validates :activity, presence: true, inclusion: { in: ACTIVITIES }

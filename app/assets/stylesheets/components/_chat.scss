@@ -19,10 +19,19 @@ body {
   border-radius: 50%;
 }
 
+.chat-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .chat-form {
-  margin-bottom: 5px;
   text-align: right;
   align-items: center;
+  position: sticky;
+  bottom: 100px;
+  padding-bottom: 20px;
+  background-color: $mint;
 }
 
 .chat-button {

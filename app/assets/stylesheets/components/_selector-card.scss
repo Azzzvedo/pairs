@@ -8,8 +8,8 @@
   background-color: $tiber;
   border-radius: 6px;
   text-decoration: none;
-
-  h3 {
+  padding-top: 0.5rem;
+  h1 {
     color: $emerald;
     font-size: 1.5rem;
   }
@@ -21,6 +21,18 @@
   &:active {
     transform: scale(1.01);
   }
+
+  p {
+    font-size: 2rem;
+  }
+}
+
+.logo-wrapper {
+  width: 30%;
+}
+
+.name-wrapper {
+  width: 70%;
 }
 
 .select-btn{

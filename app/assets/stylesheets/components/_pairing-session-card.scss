@@ -6,6 +6,9 @@
   color: #012E38;
   border-radius: 0.5rem;
   position: relative;
+  p {
+    font-family: $body-font;
+  }
 }
 
 .pairing-session-button-container-wrapper {

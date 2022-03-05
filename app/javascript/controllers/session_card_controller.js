@@ -11,6 +11,6 @@ export default class extends Controller {
   sendRequest(event) {
     const pairingSessionId = this.element.dataset.id
     const pairingRequestorId = this.element.dataset.userId
-    this.formTarget.classList.remove("d-none")
+    // this.formTarget.classList.remove("d-none")
   }
 }

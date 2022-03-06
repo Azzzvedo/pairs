@@ -11,13 +11,14 @@
   }
 }
 
-.pairing-session-button-container-wrapper {
-  position: absolute;
-  bottom: -1rem;
-}
-
 .pairing-session-button-container {
   display: flex;
   justify-content: space-between;
 
+}
+
+.pairing-session-card-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: .5rem;
 }

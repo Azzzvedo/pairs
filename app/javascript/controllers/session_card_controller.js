@@ -9,6 +9,7 @@ export default class extends Controller {
   }
 
   sendRequest(event) {
+    event.preventDefault()
     const pairingSessionId = this.element.dataset.id
     const pairingRequestorId = this.element.dataset.userId
     // this.formTarget.classList.remove("d-none")

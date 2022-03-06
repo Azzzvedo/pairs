@@ -14,7 +14,7 @@ export default class extends Controller {
     }
 
     disconnect() {
-      this.channel.unsubscrib()
+      this.channel.unsubscribe()
     }
 
   #insertMessageScrollDownAndResetForm(data) {

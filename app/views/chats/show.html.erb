@@ -11,7 +11,7 @@
     <% end %>
   </div>
   <div class="chat-form">
-    <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form"}} do |f| %>
+    <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form", loader_user_id_value: current_user.id }} do |f| %>
       <%= f.input :content, label: false, autofocus: true, placeholder: "Say something...", class: 'chat-content' %>
       <%= f.button :submit, 'Send', class: "chat-button" %>
     <% end %>

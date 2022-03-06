@@ -1,27 +1,25 @@
 class PairingSessionsController < ApplicationController
   def index
-    @pairing_session = PairingSession.new
     if params[:activity] && params[:time] && params[:address]
+      @activity = params[:activity]
+      @datetime = params[:time]
+      @address = params[:address]
       # time_range = (Time.now..Time.now + (params[:time].to_i * 60))
       @pairing_sessions = PairingSession.where.not(user: current_user).where(activity: params[:activity])#.where(datetime: time_range)
       # @pairing_sessions = @pairing_sessions.select do |pairing_session|
       # Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.address) < 10
       # end
-      if @pairing_sessions.empty?
-        @activity = params[:activity]
-        @datetime = params[:time]
-        @address = params[:address]
-        @pairing_request = PairingSession.new
-      end
+
       # @markers = @pairing_sessions.geocoded.map do |pairing_session|
       #   {
-      #     lat: pairing_session.latitude,
-      #     lng: pairing_session.longitude,
-      #     info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
-      #     image_url: helpers.asset_url("fire-flame.svg")
-      #   }
-      # end
+        #     lat: pairing_session.latitude,
+        #     lng: pairing_session.longitude,
+        #     info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
+        #     image_url: helpers.asset_url("fire-flame.svg")
+        #   }
+        # end
     end
+    @pairing_session = PairingSession.new
     @pairing_request = PairingRequest.new
     respond_to do |format|
       format.html { render "index" }

@@ -10,6 +10,7 @@ class PairingRequestsController < ApplicationController
   end
 
   def create
+    raise
     @pairing_request = PairingRequest.new(pairing_request_params)
     @pairing_session = PairingSession.find(params[:pairing_session_id])
     @pairing_request.pairing_session = @pairing_session

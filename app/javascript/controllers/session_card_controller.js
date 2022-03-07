@@ -1,10 +1,10 @@
 import { Controller } from "stimulus"
-import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
   static targets = ["form"]
 
   connect() {
+    console.log("session-card controller connect success")
   }
 
   sendRequest(event) {
@@ -14,7 +14,5 @@ export default class extends Controller {
       pairingSessionId: this.element.dataset.id,
       pairingRequestorId: this.element.dataset.userId,
       }})
-
-		// This needs to be explicitly set to enable event bubbling
   }
 }

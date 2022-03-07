@@ -1,3 +1,17 @@
-<p>Hello</p>
-
-<%= link_to 'Edit Your Profile Page', edit_my_profile_path %>
+<div class="profile-container">
+  <h1><%= @user.first_name%></h1>
+  <div class="center"><%= @user.photo.attached? ? cl_image_tag(@user.photo.key, height: 300, width: 300, crop: :fill) : "This person has not uploaded a photo" %></div>
+  <ul class="profile-list pa-bold-highlight">
+    <div class="profile-info"><i class="fas fa-venus-mars"></i> <li id="gender"><mark><%= @user.gender%></mark></li></div>
+    <div class="profile-info"><i class="fas fa-birthday-cake"></i><li id="age"><mark><%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor if @user.birth_date.present? %></mark></li></div>
+    <div class="profile-info"><i class="fas fa-dumbbell"></i><li id="competitiveness"><mark><%= @user.competitiveness %></mark></li></div>
+  </ul>
+  <div class="bio-div">
+    <%= @user.bio %>
+  </div>
+</div>
+<% if @user == current_user %>
+  <div class="edit-button">
+    <%= link_to 'Edit Your Profile Page', edit_my_profile_path, class: "profile-btn" %>
+  </div>
+<% end %>

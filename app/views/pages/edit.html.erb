@@ -2,18 +2,21 @@
 <div><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
 </div>
 
-<%= simple_form_for(@user, url: my_profile_path(@user), method: :patch) do |f| %>
-  <%= f.input :photo, as: :file, label: "Profile photo" %>
-  <%= f.input :email %>
-  <%= f.input :reset_password_token, label: "Reset password" %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :address %>
-  <%= f.input :gender, collection: [['0', 'Female'], ['1', 'Male'], ['2', 'Non-binary'],
-                                   ['3', 'Transgender'], ['4', 'Intersex'], ['5', 'I prefer not to say']],
-                                   label_method: :second, value_method: :first%>
-  <%= f.input :bio %>
-  <%= f.input :birth_date, as: :date, html5: true%>
-  <%= f.input :competitiveness, collection: ["Fun", "Intermediate", "Advanced", "Expert", "Professional"] %>
-    <%= f.submit  %>
-<% end %>
+<div class="flex-box padding-top: 32px;">
+  <%= simple_form_for(@user, url: my_profile_path(@user), method: :patch) do |f| %>
+    <%= f.input :photo, as: :file, label: "Profile photo" %>
+    <%= f.input :email %>
+    <%= f.input :reset_password_token, label: "Reset password" %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :address %>
+    <%= f.input :gender, collection: ['Female', 'Male', 'Non-binary', 'Transgender','Intersex', 'I prefer not to say']%>
+    <%= f.input :bio %>
+    <%= f.input :birth_date, as: :date, html5: true%>
+    <%= f.input :competitiveness, collection: ["Fun", "Intermediate", "Advanced", "Expert", "Professional"] %>
+    <div class="d-flex justify-content-between">
+      <%= f.button :submit, class: "profile-btn"%>
+      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+     </div>
+  <% end %>
+</div>

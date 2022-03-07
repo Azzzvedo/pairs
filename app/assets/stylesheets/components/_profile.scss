@@ -1,0 +1,67 @@
+.profile-list {
+  color: $tiber;
+  list-style-type: none;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  text-align: justify;
+  display: inline-block;
+}
+
+.bio-div {
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.profile-container {
+  position: relative;
+  align-content: center;
+}
+
+.edit-button {
+  top: 80%;
+  margin-top: 16px;
+}
+
+#gender {
+  margin-top: 16px;
+}
+
+#age {
+  margin-top: 16px;
+}
+
+#competitiveness {
+  margin-top: 16px;
+}
+
+mark {
+  background-color:#A6F1C4;
+  padding: 8px;
+  border-radius: 8px 8px 8px 8px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.profile-info {
+
+  display: flex;
+  width: 200px;
+  align-items: center;
+  justify-content: flex-start;
+  height: 60px;
+}
+
+#gender, #competitiveness, #age {
+  padding-bottom: 10px;
+  padding-left: 15px;
+}
+
+.fa-dumbbell, .fa-birthday-cake, .fa-venus-mars {
+  width: 20px;
+}
+
+// padding-bottom: 10px

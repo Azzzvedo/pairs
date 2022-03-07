@@ -11,7 +11,7 @@ require "nokogiri"
 # require "pry"
 
 LOCATIONS = ["Hyde Park", "Regents Park", "Primrose Hill", "Richmond Park", "Victoria Park"]
-ACTIVITIES = %w[climbing tennis fencing]
+ACTIVITIES = %w[climbing tennis pool squash golf running badminton cycling swimming]
 TIMES = []
 User.destroy_all
 PairingSession.destroy_all
@@ -37,6 +37,7 @@ users.each do |user|
       address: LOCATIONS[i],
       description: Faker::Twitter.status[:text],
       time: [0, 15, 30, 45, 60].sample,
+      datetime: Faker::Date.between(from: '2022-03-11', to: '2022-03-25'),
       user_id: admin.id
     )
     i += 1
@@ -44,7 +45,7 @@ users.each do |user|
   end
 end
 
-  5.times do
+5.times do
   user = User.new(
     email: Faker::Internet.email,
     password: "123456",
@@ -56,18 +57,19 @@ end
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     competitiveness: Faker::Number.within(range: 1..10)
   )
-user.save!
+  user.save!
 end
 
 i = 0
-  5.times do
-    pairing_session = PairingSession.new(
-      activity: ACTIVITIES.sample,
-      address: LOCATIONS[i],
-      description: Faker::Twitter.status[:text],
-      time: [0, 15, 30, 45, 60].sample,
-      user_id: User.all.sample.id
-    )
-  i = i +1
-pairing_session.save!
+5.times do
+  pairing_session = PairingSession.new(
+    activity: ACTIVITIES.sample,
+    address: LOCATIONS[i],
+    description: Faker::Twitter.status[:text],
+    time: [0, 15, 30, 45, 60].sample,
+    user_id: User.all.sample.id,
+    datetime: Faker::Date.between(from: '2022-03-11', to: '2022-03-25')
+  )
+  i += 1
+  pairing_session.save!
 end

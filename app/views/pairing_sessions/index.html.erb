@@ -1,18 +1,18 @@
 <div data-controller="new-session">
   <%= simple_form_for @pairing_session, data: { new_session_target: "form" } do |f| %>
-    <div data-controller="session-form">
+    <div>
       <div data-new-session-target="activity" data-action="activityEvent->new-session#handleEvent">
         <div class="d-none"><%= f.input :activity %></div>
         <%= render 'activities' %>
       </div>
     </div>
-    <div data-controller="session-form">
+    <div>
       <div class="d-none" data-new-session-target="address">
         <%= f.input :address, label: 'Where abouts?' %>
         <button data-action="click->new-session#displayTime" class="select-btn mb-3">Choose</button>
       </div>
     </div>
-    <div data-controller="session-form">
+    <div>
       <div class="d-none" data-new-session-target="time">
         <%= f.input :datetime, html5: true %>
         <button data-action="click->new-session#displayPairingSessions" class="btn btn-primary mb-3">Choose</button>
@@ -23,27 +23,33 @@
       <%= f.input :description %>
       <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
     </div>
-  <div data-new-session-target="container"></div>
   <% end %>
-</div>
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content modal-position">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Send a short introduction!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+  <div data-controller="modal" data-action="session-card:pairRequest->modal#handleModalEvent">
+    <div data-new-session-target="container"></div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content modal-position">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Send a short introduction!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <%= simple_form_for @pairing_request do |form| %>
+            <div class="modal-body">
+              <div class="d-none" data-modal-target="request">
+                <%= form.input :pairing_session_id, label: false %>
+                <%= form.input :user_id, label: false %>
+              </div>
+              <%= form.input :introduction, label: false %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= form.button :submit , class: "btn btn-primary" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <%= simple_form_for @pairing_request do |form| %>
-        <div class="modal-body">
-            <%= form.input :introduction, label: false %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= form.button :submit , class: "btn btn-primary" %>
-        </div>
-      <% end %>
     </div>
   </div>
 </div>

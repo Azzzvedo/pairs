@@ -5,13 +5,16 @@ export default class extends Controller {
   static targets = ["form"]
 
   connect() {
-
   }
 
   sendRequest(event) {
     event.preventDefault()
-    const pairingSessionId = this.element.dataset.id
-    const pairingRequestorId = this.element.dataset.userId
-    // this.formTarget.classList.remove("d-none")
+    this.dispatch( "pairRequest", {
+      detail: {
+      pairingSessionId: this.element.dataset.id,
+      pairingRequestorId: this.element.dataset.userId,
+      }})
+
+		// This needs to be explicitly set to enable event bubbling
   }
 }

@@ -25,11 +25,16 @@ body {
   justify-content: space-between;
 }
 
+.chat-body {
+  position: relative;
+}
+
 .chat-form {
   text-align: right;
   align-items: center;
-  position: sticky;
-  bottom: 100px;
+  position: fixed;
+  width: 80%;
+  top: 72%;
   padding-bottom: 20px;
   background-color: $mint;
 }

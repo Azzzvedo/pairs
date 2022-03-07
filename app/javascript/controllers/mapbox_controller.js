@@ -17,10 +17,10 @@ export default class extends Controller {
       style: "mapbox://styles/arabella22/cl0gst5b3000l14qkhe9ltoe3"
     })
     this.#addMarkersToMap()
-    // this.#fitMapToMarkers()
+    this.#fitMapToMarkers()
 
-    // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
-    //   mapboxgl: mapboxgl }))
+    this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
+      mapboxgl: mapboxgl }))
   }
 
   #addMarkersToMap() {
@@ -35,10 +35,11 @@ export default class extends Controller {
         customMarker.style.backgroundSize = "contain"
         customMarker.style.width = "25px"
         customMarker.style.height = "25px"
+        console.log(customMarker)
 
         new mapboxgl.Marker(customMarker)
           .setLngLat([ marker.lng, marker.lat ])
-          .addTo(this.map)
+          .setPopup(popup)
           .addTo(this.map)
       });
     // }

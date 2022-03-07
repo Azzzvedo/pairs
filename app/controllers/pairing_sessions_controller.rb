@@ -1,22 +1,26 @@
 class PairingSessionsController < ApplicationController
   def index
+    @markers = []
     if params[:activity] && params[:time] && params[:address]
       # time_range = (Time.now..Time.now + (params[:time].to_i * 60))
       @pairing_sessions = PairingSession.where.not(user: current_user).where(activity: params[:activity])#.where(datetime: time_range)
       # @pairing_sessions = @pairing_sessions.select do |pairing_session|
       # Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.address) < 10
       # end
-
-      # @markers = @pairing_sessions.geocoded.map do |pairing_session|
-      #   {
-        #     lat: pairing_session.latitude,
-        #     lng: pairing_session.longitude,
-        #     info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
-        #     image_url: helpers.asset_url("fire-flame.svg")
-        #   }
-        # end
       @pairing_session = PairingSession.new(activity: params[:activity], datetime: params[:time], address: params[:address])
     else
+      if params[:activity]
+        @pairing_sessions_for_map = PairingSession.where.not(user: current_user).where(activity: params[:activity])
+        @markers = @pairing_sessions_for_map.geocoded.map do |pairing_session|
+        {
+          lat: pairing_session.latitude,
+          lng: pairing_session.longitude,
+          #  info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
+          image_url: helpers.asset_url("table-tennis-paddle-ball-solid.svg")
+            }
+        end
+
+      end
       @pairing_session = PairingSession.new
     end
     @pairing_request = PairingRequest.new

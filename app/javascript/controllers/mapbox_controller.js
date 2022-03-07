@@ -10,13 +10,13 @@ export default class extends Controller {
   }
 
   connect() {
-    // mapboxgl.accessToken = this.apiKeyValue
+    mapboxgl.accessToken = this.apiKeyValue
 
-    // this.map = new mapboxgl.Map({
-    //   container: this.element,
-    //   style: "mapbox://styles/arabella22/cl01ee19k001814n294bapa8d"
-    // })
-    // this.#addMarkersToMap()
+    this.map = new mapboxgl.Map({
+      container: this.element,
+      style: "mapbox://styles/arabella22/cl0gst5b3000l14qkhe9ltoe3"
+    })
+    this.#addMarkersToMap()
     // this.#fitMapToMarkers()
 
     // this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
@@ -24,21 +24,24 @@ export default class extends Controller {
   }
 
   #addMarkersToMap() {
-    this.markersValue.forEach((marker) => {
-      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+    // if (this.hasMarkersValue) {
+      console.log(this.markersValue)
+      this.markersValue.forEach((marker) => {
+        const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 
-      const customMarker = document.createElement("div")
-      customMarker.className = "marker"
-      customMarker.style.backgroundImage = `url('${marker.image_url}')`
-      customMarker.style.backgroundSize = "contain"
-      customMarker.style.width = "25px"
-      customMarker.style.height = "25px"
+        const customMarker = document.createElement("div")
+        customMarker.className = "marker"
+        customMarker.style.backgroundImage = `url('${marker.image_url}')`
+        customMarker.style.backgroundSize = "contain"
+        customMarker.style.width = "25px"
+        customMarker.style.height = "25px"
 
-      new mapboxgl.Marker(customMarker)
-        .setLngLat([ marker.lng, marker.lat ])
-        .addTo(this.map)
-        .addTo(this.map)
-    });
+        new mapboxgl.Marker(customMarker)
+          .setLngLat([ marker.lng, marker.lat ])
+          .addTo(this.map)
+          .addTo(this.map)
+      });
+    // }
   }
 
   #fitMapToMarkers() {

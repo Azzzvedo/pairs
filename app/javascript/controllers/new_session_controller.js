@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = ["activity", "address", "time", "description", "form", "container", "button"]
+  static targets = ["activity", "address", "time", "description", "form", "container", "button", "mapContainer"]
 
   connect() {
     console.log("new_session controller connect success")
@@ -16,6 +16,14 @@ export default class extends Controller {
     this.activityTarget.classList.add("d-none")
     this.addressTarget.classList.remove("d-none")
     // this.messageTarget.textContent = `Message from child: ${message}`;
+    fetch("/pairing_sessions?" + new URLSearchParams({"activity": activity}), {
+      method: "GET",
+      headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
+    })
+      .then(response => response.json())
+      .then((data) => {
+        this.mapContainerTarget.innerHTML = data.map
+      })
   }
 
   displayAddress() {

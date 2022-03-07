@@ -36,3 +36,48 @@ a.home-btn:hover{
   background-color: $emerald;
   color: white;
 }
+
+.profile-btn {
+  background-color: $emerald;
+  color: $tiber;
+  border: none;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  transition: transform .2s;
+}
+
+.profile-btn:hover {
+  color: white;
+}
+
+.logout-btn {
+  background-color: #63E1B4;
+  text-decoration: none;
+  color: #FFFFFF;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 6px;
+  display: inline-flex;
+  font-size: 18px;
+  font-weight: bold;
+  justify-content: right;
+  margin-left: 128 px;
+}
+
+.form-submit-button {
+  background-color: $tiber;
+  text-decoration: none;
+  color: $emerald;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 6px;
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bold;
+  display: inline-block;
+}

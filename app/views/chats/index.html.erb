@@ -1,15 +1,22 @@
-<h1 style="text-align: center;">My Pairs</h1>
-  <ul>
-    <% @chats.each do |chat| %>
-      <a href="<%= chat_path(chat) %>">
-      <li>
-        <div class="chat-card">
-          <h5><%=chat.partner.first_name %></h5>
-            <% if chat.partner.photo.attached? %>
-              <div><%= cl_image_tag chat.partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
-            <% end %>
-        </div>
-        </li>
-      </a>
-    <% end %>
-  </ul>
+<% if @chats.count > 0 %>
+  <h1 style="text-align: center;">My Pairs</h1>
+    <ul>
+      <% @chats.each do |chat| %>
+        <a href="<%= chat_path(chat) %>">
+        <li>
+          <div class="chat-card">
+            <h5><%=chat.partner.first_name %></h5>
+              <% if chat.partner.photo.attached? %>
+                <div><%= cl_image_tag chat.partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
+              <% end %>
+          </div>
+          </li>
+        </a>
+      <% end %>
+    </ul>
+<% else %>
+  <div class="empty-chat">
+    <h2>It looks like you haven't got any chats yet...but don't worry! Click here to find a partner!</h2>
+    <%= link_to "Find a partner!", pairing_sessions_path, class: 'home-btn'%>
+  </div>
+<% end %>

@@ -15,11 +15,10 @@ class PairingSessionsController < ApplicationController
         {
           lat: pairing_session.latitude,
           lng: pairing_session.longitude,
-          #  info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
+          info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
           image_url: helpers.asset_url("table-tennis-paddle-ball-solid.svg")
             }
         end
-
       end
       @pairing_session = PairingSession.new
     end

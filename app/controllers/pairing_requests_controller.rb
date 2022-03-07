@@ -24,13 +24,18 @@ class PairingRequestsController < ApplicationController
       @pairing_session = @pairing_request.pairing_session
       @pairing_request.update(approved: true)
       # inactivate pairing session?
-      @chat = Chat.new
-      @chat.sender = @pairing_request.user
-      @chat.recipient = @pairing_session.user
-      if @chat.save
-        redirect_to chat_path(@chat)
+      @existing_chat = Chat.find_by(sender_id: @pairing_request.user.id, recipient_id: @pairing_session.user.id) || Chat.find_by(sender_id: @pairing_session.user.id, recipient_id: @pairing_request.user.id)
+      if @existing_chat
+        redirect_to chat_path(@existing_chat)
       else
-        render 'pairing_sessions'
+        @chat = Chat.new
+        @chat.sender = @pairing_request.user
+        @chat.recipient = @pairing_session.user
+        if @chat.save
+          redirect_to chat_path(@chat)
+        else
+          render 'pairing_sessions'
+        end
       end
     else
       @pairing_request.update(approved: false)

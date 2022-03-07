@@ -5,7 +5,7 @@ body {
   margin-top: 16px;
   margin-bottom: 8px;
   margin-right: 48px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba($tiber, 0.3);
   padding: 24px;
   display: flex;
   justify-content: space-between;
@@ -13,6 +13,18 @@ body {
   h5{
     padding-top: 0.5rem;
   }
+}
+
+.chat-body {
+  position: relative;
+  color: $tiber;
+  text-decoration: none;
+}
+
+.chats-list {
+  list-style-type: none;
+  color: $tiber;
+  text-decoration: none;
 }
 
 .chat-picture {
@@ -25,16 +37,12 @@ body {
   justify-content: space-between;
 }
 
-.chat-body {
-  position: relative;
-}
-
 .chat-form {
   text-align: right;
   align-items: center;
   position: fixed;
-  width: 80%;
   top: 72%;
+  width: 80%;
   padding-bottom: 20px;
   background-color: $mint;
 }
@@ -54,8 +62,9 @@ body {
   margin-top: 70%;
 }
 
-.empty-chat-button {
-  margin-top: 50px;
+.messages {
+  height: 540px;
+  overflow-y: auto;
 }
 
 .mb-3.text.optional.message_content {

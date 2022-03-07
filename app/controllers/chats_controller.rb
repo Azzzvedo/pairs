@@ -2,11 +2,7 @@ class ChatsController < ApplicationController
 
   def index
     @chats = Chat.where(sender: current_user).or(Chat.where(recipient: current_user))
-    if @chats.empty?
-      redirect_to new_pairing_session_path
-    else
-      @chats.map { |chat| chat.partner = partner(chat) }
-    end
+    @chats.map { |chat| chat.partner = partner(chat) }
   end
 
   def show

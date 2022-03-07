@@ -10,27 +10,31 @@ class PairingRequestsController < ApplicationController
   end
 
   def create
-    raise
     @pairing_request = PairingRequest.new(pairing_request_params)
-    @pairing_session = PairingSession.find(params[:pairing_session_id])
-    @pairing_request.pairing_session = @pairing_session
-    @pairing_request.user = current_user
-    @pairing_request.save
-    render nothing: true
+    if @pairing_request.save
+      redirect_to pairing_requests_path
+    else
+      redirect_to pairing_sessions_path
+    end
   end
 
   def update
     @pairing_request = PairingRequest.find(params[:id])
-    approve(@pairing_request)
-    @pairing_session = @pairing_request.pairing_session
-    # inactivate pairing session?
-    @chat = Chat.new
-    @chat.sender = @pairing_request.user
-    @chat.recipient = @pairing_session.user
-    if @chat.save
-      redirect_to chat_path(@chat)
+    if update_pairing_request_params[:approved] == '1'
+      @pairing_session = @pairing_request.pairing_session
+      @pairing_request.update(approved: true)
+      # inactivate pairing session?
+      @chat = Chat.new
+      @chat.sender = @pairing_request.user
+      @chat.recipient = @pairing_session.user
+      if @chat.save
+        redirect_to chat_path(@chat)
+      else
+        render 'pairing_sessions'
+      end
     else
-      render 'pairing_sessions'
+      @pairing_request.update(approved: false)
+      redirect_to pairing_requests_path
     end
   end
 
@@ -48,6 +52,10 @@ class PairingRequestsController < ApplicationController
   end
 
   def pairing_request_params
-    params.require(:pairing_request).permit(:introduction)
+    params.require(:pairing_request).permit(:introduction, :pairing_session_id, :user_id)
+  end
+
+  def update_pairing_request_params
+    params.require(:pairing_request).permit(:approved)
   end
 end

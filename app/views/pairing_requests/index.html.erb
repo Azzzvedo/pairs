@@ -1,18 +1,32 @@
 <h1 class="mb-3">My Pairing Requests</h1>
-
 <% if @pairing_requests.count > 0 %>
-  <h3> Requests</h3>
-  <% @pairing_requests.each do |pairing_request| %>
-    <div class="pairing-request-card">
-      <p><%= pairing_request.user.first_name %> wants to pair up!</p>
-      <div class="pairing-request-button-container">
-        <%= simple_form_for [pairing_request.pairing_session, pairing_request] do |f| %>
-          <%= f.input :approved, label: 'approve' %>
-          <%= f.button :submit %>
-        <% end %>
+  <div class="pairing-session-card-container">
+    <% @pairing_requests.each do |pairing_request| %>
+      <div data-controller="request-card">
+        <div class="pairing-session-card">
+          <% if pairing_request.user.photo.attached? %>
+            <%= cl_image_tag pairing_request.user.photo.key, height: 150, width: 150, crop: :fill,  class: "pairing-session-card-image" %>
+          <% else %>
+            <img src="<%= image_path("blank-profile-picture-973460_1280.png") %>" alt="" class="pairing-session-card-image">
+          <% end %>
+          <h4><%= "#{pairing_request.user.first_name}'s #{pairing_request.pairing_session.activity} session!" %>
+          <p><%= pairing_request.introduction %></p>
+          <p><%= pairing_request.pairing_session.datetime.strftime("%a %b %e at %l:%M %p") %></p>
+          <p><%= pairing_request.pairing_session.address %></p>
+          <div class="pairing-session-button-container">
+            <button data-action="request-card#reject" class="select-btn mb-3">Reject</button>
+            <button data-action="request-card#pair" class="select-btn-affirmative mb-3">Pair</button>
+          </div>
+        </div>
+        <div class="d-none">
+          <%= simple_form_for [pairing_request.pairing_session, pairing_request], data: { request_card_target: "form" } do |f| %>
+            <%= f.input :approved, label: 'approve' %>
+            <%= f.button :submit %>
+          <% end %>
+        </div>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 <% else %>
   <h3> No requests yet. Check back later!</h3>
 <% end %>

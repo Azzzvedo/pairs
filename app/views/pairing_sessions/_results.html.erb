@@ -21,13 +21,14 @@
   </div>
 <% else %>
   <p>No current sessions at the moment. Who don't you start your own? Give a quick description of the kind of session you want and start pairing!</p>
-  <%= simple_form_for @pairing_session do |f| %>
+    <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %>
     <div class="d-none">
-      <%= f.input :activity, input_html: { value: @activity } %>
-      <%= f.input :address, input_html: { value: @address } %>
-      <%= f.input :datetime, html5: true, input_html: { value: @datetime } %>
+      <%= f.input :activity %>
+      <%= f.input :address %>
+      <%= f.input :datetime, html5: true %>
     </div>
     <%= f.input :description %>
     <%= f.submit 'Start pairing!', class: "btn btn-primary" %>
   <% end %>
+
 <% end %>

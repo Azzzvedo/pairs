@@ -4,6 +4,7 @@ export default class extends Controller {
   static targets = ["form"]
 
   connect() {
+    console.log("request_card controller connect success")
   }
 
   reject(event) {
@@ -31,6 +32,5 @@ export default class extends Controller {
     console.log("accept")
     this.formTarget.querySelector('input#pairing_request_approved').checked = true
     this.formTarget.submit()
-
   }
 }

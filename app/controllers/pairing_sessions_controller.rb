@@ -1,9 +1,6 @@
 class PairingSessionsController < ApplicationController
   def index
     if params[:activity] && params[:time] && params[:address]
-      @activity = params[:activity]
-      @datetime = params[:time]
-      @address = params[:address]
       # time_range = (Time.now..Time.now + (params[:time].to_i * 60))
       @pairing_sessions = PairingSession.where.not(user: current_user).where(activity: params[:activity])#.where(datetime: time_range)
       # @pairing_sessions = @pairing_sessions.select do |pairing_session|
@@ -18,8 +15,10 @@ class PairingSessionsController < ApplicationController
         #     image_url: helpers.asset_url("fire-flame.svg")
         #   }
         # end
+      @pairing_session = PairingSession.new(activity: params[:activity], datetime: params[:time], address: params[:address])
+    else
+      @pairing_session = PairingSession.new
     end
-    @pairing_session = PairingSession.new
     @pairing_request = PairingRequest.new
     respond_to do |format|
       format.html { render "index" }
@@ -37,7 +36,7 @@ class PairingSessionsController < ApplicationController
     if @pairing_session.save
       redirect_to pairing_requests_path
     else
-      render 'pairing_sessions'
+      render :pairing_sessions
     end
   end
 

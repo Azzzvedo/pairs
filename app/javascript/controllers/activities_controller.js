@@ -5,6 +5,7 @@ export default class extends Controller {
   static targets = ["name", "input"]
 
   connect() {
+    console.log("activities_controller connect success")
   }
 
   selectActivity() {

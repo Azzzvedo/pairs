@@ -5,14 +5,13 @@ export default class extends Controller {
   static targets = ["request"]
 
   connect() {
+    console.log("new_request_controller connect success")
   }
 
   handleModalEvent(event) {
-    console.log("testing")
+    console.log("dispatch received success")
     const pairingSessionId = event.detail.pairingSessionId
-    console.log(pairingSessionId)
     const pairingRequestorId = event.detail.pairingRequestorId
-    console.log(pairingRequestorId)
     this.requestTarget.querySelector("input[name='pairing_request[pairing_session_id]']").setAttribute('value', pairingSessionId)
     this.requestTarget.querySelector("input[name='pairing_request[user_id]']").setAttribute('value', pairingRequestorId)
     // this.requestFormTarget.querySelector('input[name="pairing_request[pairing_session_id]"]').setAttribute('value', pairingSessionId)

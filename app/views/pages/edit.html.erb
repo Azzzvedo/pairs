@@ -2,7 +2,7 @@
 <div><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
 </div>
 
-<div class="flex-box padding-top: 32px;">
+<div class="flex-box">
   <%= simple_form_for(@user, url: my_profile_path(@user), method: :patch) do |f| %>
     <%= f.input :photo, as: :file, label: "Profile photo" %>
     <%= f.input :email %>

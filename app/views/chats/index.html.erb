@@ -2,7 +2,7 @@
   <h1 style="text-align: center;">My Pairs</h1>
     <ul>
       <% @chats.each do |chat| %>
-        <a class="chats-list" href="<%= chat_path(chat)%>#message-<%=chat.messages.last.id%>">
+        <a class="chats-list" href="<%= chat_path(chat)%>">
         <li>
           <div class="chat-card">
             <h5><%=chat.partner.first_name %></h5>

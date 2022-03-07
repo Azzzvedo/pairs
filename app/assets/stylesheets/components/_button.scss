@@ -1,39 +1,38 @@
-a.home-btn{
-  background-color: #FFFFFF;
-  color: $emerald;
-  padding: 15px 20px;
-  border-radius: 6px;
-  border: none;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 24px;
-  font-weight: bold;
-  transition: transform .2s;
-}
-
-a.home-btn:hover{
-  background-color: $emerald;
-  color: #FFFFFF;
-  transform: scale(1.2);
-}
 
 a.home-btn2{
-  background-color: $emerald;
-  color: #FFFFFF;
-  padding: 15px 20px;
-  border-radius: 6px;
-  border: none;
+  background-color: $tiber;
+  color: $tiber;
+  border: 2px solid $emerald;
+  padding: 16px 32px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
-  font-size: 24px;
+  width: 200px;
+  font-size: 16px;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: bold;
   transition: transform .2s;
 }
 
 a.home-btn2:hover{
-  background-color: #FFFFFF;
-  color: $emerald;
-  transform: scale(1.2);
+  background-color: $emerald;
+}
+
+a.home-btn{
+
+  background-color: white;
+  padding: 16px 32px;
+  text-align: center;
+  display: inline-block;
+  width: 200px;
+  font-size: 16px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bolder;
+  transition: transform .2s;
+}
+
+a.home-btn:hover{
+  background-color: $emerald;
+  color: white;
 }

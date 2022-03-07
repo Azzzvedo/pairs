@@ -45,6 +45,19 @@ body {
   border-radius: 50px;
 }
 
+.empty-chat {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 70%;
+}
+
+.empty-chat-button {
+  margin-top: 50px;
+}
+
 .mb-3.text.optional.message_content {
   border: 1px solid rgb(0, 210, 132);
 }

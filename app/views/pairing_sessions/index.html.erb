@@ -8,11 +8,9 @@
   </div>
   <div>
     <div class="d-none" data-new-session-target="address">
-      <div class="map-style" data-new-session-target="mapContainer">
-        <%= render 'map', markers: @markers %>
-      </div>
+      <div class="map-style" data-new-session-target="mapContainer"></div>
       <p>Where abouts?</p>
-      <input type="text">
+      <input data-new-session-target="addressInput" type="text">
       <button data-action="click->new-session#displayTime" class="profile-btn">Choose</button>
     </div>
   </div>

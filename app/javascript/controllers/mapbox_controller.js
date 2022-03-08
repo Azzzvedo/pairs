@@ -10,14 +10,19 @@ export default class extends Controller {
   }
 
   connect() {
+    console.log("mapbox controller connect success")
+    console.log(this.markersValue.length)
+
     mapboxgl.accessToken = this.apiKeyValue
 
     this.map = new mapboxgl.Map({
       container: this.element,
       style: "mapbox://styles/arabella22/cl0gst5b3000l14qkhe9ltoe3"
     })
-    this.#addMarkersToMap()
-    this.#fitMapToMarkers()
+    if (this.markersValue.length !== 0) {
+      this.#addMarkersToMap()
+      this.#fitMapToMarkers()
+    }
 
     this.map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
       mapboxgl: mapboxgl }))

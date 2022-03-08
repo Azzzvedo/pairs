@@ -1,24 +1,35 @@
 class PairingSessionsController < ApplicationController
   def index
-    @markers = []
     if params[:activity] && params[:time] && params[:address]
-      # time_range = (Time.now..Time.now + (params[:time].to_i * 60))
-      @pairing_sessions = PairingSession.where.not(user: current_user).where(activity: params[:activity])#.where(datetime: time_range)
-      # @pairing_sessions = @pairing_sessions.select do |pairing_session|
-      # Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.address) < 10
-      # end
+
+      t_now = DateTime.now
+      t_selected = params[:time].to_datetime
+
+      if t_selected - 12.hours > t_now
+        start_time =  t_selected - 12.hours
+      else
+        start_time =  t_now - 1.hours
+      end
+      time_range = (start_time..(params[:time].to_datetime + 12.hours))
+
+      request_objects = PairingRequest.where("approved = true").select(:pairing_session_id).distinct.to_a
+      request_ids = request_objects.map {|r| r.pairing_session_id}
+      @pairing_sessions = PairingSession.where.not(id: request_ids).where.not(user: current_user).where(activity: params[:activity]).where(datetime: time_range)
+      @pairing_sessions = @pairing_sessions.sort_by do |pairing_session|
+        Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.coordinates)
+      end
       @pairing_session = PairingSession.new(activity: params[:activity], datetime: params[:time], address: params[:address])
     else
       if params[:activity]
         @pairing_sessions_for_map = PairingSession.where.not(user: current_user).where(activity: params[:activity])
-        @markers = @pairing_sessions_for_map.geocoded.map do |pairing_session|
-        {
-          lat: pairing_session.latitude,
-          lng: pairing_session.longitude,
-          info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
-          image_url: helpers.asset_url("table-tennis-paddle-ball-solid.svg")
-            }
-        end
+          @markers = @pairing_sessions_for_map.geocoded.map do |pairing_session|
+          {
+            lat: pairing_session.latitude,
+            lng: pairing_session.longitude,
+            info_window: render_to_string(partial: "info_window", locals: { pairing_session: pairing_session }),
+            image_url: helpers.asset_url("table-tennis-paddle-ball-solid.svg")
+              }
+          end
       end
       @pairing_session = PairingSession.new
     end

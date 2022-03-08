@@ -6,16 +6,17 @@
       <%= render 'activities' %> <!-- This renders the activities buttons -->
     </div>
   </div>
-  <div>
+  <div style="justify-content: center;">
     <div class="d-none" data-new-session-target="address">
+  <h4 mb-5>Where?</h4>
       <div class="map-style" data-new-session-target="mapContainer"></div>
-      <p>Where abouts?</p>
       <input data-new-session-target="addressInput" type="text">
       <button data-action="click->new-session#displayTime" class="profile-btn">Choose</button>
     </div>
   </div>
   <div>
     <div class="d-none" data-new-session-target="time">
+    <h4 mb-5>When?</h4>
       <input type="datetime-local">
       <button data-action="click->new-session#displayPairingSessions" class="btn profile-btn mb-3">Choose</button>
     </div>

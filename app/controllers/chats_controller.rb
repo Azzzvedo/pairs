@@ -9,6 +9,12 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @message = Message.new
     @partner = partner(@chat)
+    @chat.messages.each do |message|
+      if message.user_id != current_user.id
+        message.seen = true
+        message.save
+      end
+    end
   end
 
   private

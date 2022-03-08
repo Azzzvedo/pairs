@@ -26,7 +26,7 @@ users.each do |user|
     password: "123456",
     address: Faker::Address.street_address,
     gender: Faker::Gender.binary_type,
-    bio: Faker::Twitter.status.text,
+    bio: Faker::Twitter.status[:text],
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     competitiveness: Faker::Number.within(range: 1..10)
   )
@@ -53,7 +53,7 @@ end
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     gender: Faker::Gender.binary_type,
-    bio: Faker::Twitter.status.text,
+    bio: Faker::Twitter.status[:text],
     birth_date: Faker::Date.birthday(min_age: 18, max_age: 65),
     competitiveness: Faker::Number.within(range: 1..10)
   )

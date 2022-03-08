@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2022_03_08_121531) do
     t.text "introduction"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "seen", default: false
     t.index ["pairing_session_id"], name: "index_pairing_requests_on_pairing_session_id"
     t.index ["user_id"], name: "index_pairing_requests_on_user_id"
   end

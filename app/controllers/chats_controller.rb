@@ -17,6 +17,10 @@ class ChatsController < ApplicationController
     end
   end
 
+  def check_chat_user(user)
+    user.id == sender_id || user.id == recipient_id
+  end
+
   private
 
   def partner(chat)

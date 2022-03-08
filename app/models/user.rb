@@ -19,6 +19,12 @@ class User < ApplicationRecord
     @unseen_messages.flatten!
   end
 
+  def unseen_requests
+    ps_ids_object = PairingSession.where(user: self).select(:id)
+    ps_ids = ps_ids_object.map { |ps| ps.id }
+    PairingRequest.where(pairing_session_id: ps_ids).and(PairingRequest.where(seen: false))
+  end
+
   private
 
   def delete_chats

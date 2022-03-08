@@ -21,6 +21,23 @@
     position: relative;
   }
 
+
+
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.fas-items {
+  color : $emerald;
+  list-style-type: none;
+  align-content: center;
+  padding: 24px;
+}
+
+.nav-notification-container{
+  position: relative;
   .chat-notifications {
     position: absolute;
     top: 8px;
@@ -37,15 +54,4 @@
     font-size: 14px;
     font-weight: bold;
   }
-
-  a {
-    text-decoration: none;
-  }
-}
-
-.fas-items {
-  color : $emerald;
-  list-style-type: none;
-  align-content: center;
-  padding: 24px;
 }

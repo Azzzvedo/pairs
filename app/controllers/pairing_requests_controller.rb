@@ -2,6 +2,10 @@ class PairingRequestsController < ApplicationController
   def index
     @user_pairing_sessions = PairingSession.where(user: current_user)
     @pairing_requests = PairingRequest.where(pairing_sessions: @user_pairing_sessions).where(approved: nil)
+    @pairing_requests.each do |pairing_request|
+      pairing_request.seen = true
+      pairing_request.save
+    end
   end
 
   def create_chat

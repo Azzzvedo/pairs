@@ -2,6 +2,7 @@
   <a class="chat-body" href="<%= my_profile_path(@partner.id) %>">
     <div class="chat-header">
       <h1><%= @partner.first_name %></h1>
+        <%= current_user.unseen_messages.count == 0 ? "" : current_user.unseen_messages.count %>
       <% if @partner.photo.attached? %>
         <div><%= cl_image_tag @partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
       <% end %>

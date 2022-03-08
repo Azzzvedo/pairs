@@ -1,4 +1,4 @@
-<div class="message  <%= message.user == current_user ? 'current' : 'other' %>">
+<div class="message" data-chat-subscription-target="message" data-sender-id=<%= message.user_id%>>
   <div id="message-<%=message.id %>">
     <small>
       <strong><%= message.user.first_name %></strong>

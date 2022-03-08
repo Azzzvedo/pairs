@@ -13,8 +13,8 @@ class PairingSessionsController < ApplicationController
       time_range = (start_time..(params[:time].to_datetime + 12.hours))
 
       request_objects = PairingRequest.where("approved = true").select(:pairing_session_id).distinct.to_a
-      request_ids = request_objects.map {|r| r.pairing_session_id}
-      @pairing_sessions = PairingSession.where.not(id: request_ids).where.not(user: current_user).where(activity: params[:activity]).where(datetime: time_range)
+      approved_pairing_session_ids = request_objects.map {|r| r.pairing_session_id}
+      @pairing_sessions = PairingSession.where.not(id: approved_pairing_session_ids).where.not(user: current_user).where(activity: params[:activity]).where(datetime: time_range)
       @pairing_sessions = @pairing_sessions.sort_by do |pairing_session|
         Geocoder::Calculations.distance_between([pairing_session.latitude, pairing_session.longitude], Geocoder.search(params[:address]).first.coordinates)
       end

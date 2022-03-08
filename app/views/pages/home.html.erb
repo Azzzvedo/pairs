@@ -1,23 +1,19 @@
-<style>body {background-color: #053842;}</style>
-
-<div class="container">
-  <div class="row justify-content-center">
-
-    <div class = "flex">
-      <!-- This div is centered and takes 6 columns -->
-    <h1>PAIRS</h1>
-    <%# <h3>Description Here</h3> %>
-        <div class="sign-in" >
-          <% if user_signed_in? %>
-          <%= link_to "New Pairing Session", pairing_sessions_path, class: 'home-btn'%>
-          <% else %>
-          <ul>
-          <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
-          <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
-          </ul>
-          <% end %>
-        </div>
-      <!-- This div is centered and takes 6 columns -->
-    </div>
+<div class="total-container">
+  <div class="container-fluid">
+    <style>body {background-color: #053842;}</style>
+        <!-- This div is centered and takes 6 columns -->
+      <h1>PAIRS</h1>
+      <%# <h3>Description Here</h3> %>
+      <div class="sign-in" >
+        <% if user_signed_in? %>
+        <%= link_to "New Pairing Session", pairing_sessions_path, class: 'home-btn'%>
+        <% else %>
+        <ul>
+        <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
+        <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
+        </ul>
+        <% end %>
+      </div>
+        <!-- This div is centered and takes 6 columns -->
   </div>
 </div>

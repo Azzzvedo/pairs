@@ -1,7 +1,7 @@
 
 a.home-btn2{
-  background-color: $tiber;
-  color: $tiber;
+  background-color: $emerald;
+  color: white;
   border: 2px solid $emerald;
   padding: 16px 32px;
   text-align: center;
@@ -12,6 +12,7 @@ a.home-btn2{
   font-size: 16px;
   font-weight: bold;
   transition: transform .2s;
+  text-decoration: none;
 }
 
 a.home-btn2:hover{
@@ -19,8 +20,8 @@ a.home-btn2:hover{
 }
 
 a.home-btn{
-
   background-color: white;
+  color: $tiber;
   padding: 16px 32px;
   text-align: center;
   display: inline-block;
@@ -30,6 +31,7 @@ a.home-btn{
   font-size: 16px;
   font-weight: bolder;
   transition: transform .2s;
+  text-decoration: none;
 }
 
 a.home-btn:hover{

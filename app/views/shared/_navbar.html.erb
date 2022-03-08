@@ -19,7 +19,9 @@
           <% end %>
         </li>
       <li class="nav-item">
+        <% if @chats.present? %>
         <%= current_user.unseen_messages.count == 0 ? "" : current_user.unseen_messages.count %>
+        <% end %>
         <%= link_to chats_path do %>
           <i class="fas fa-comment fa-2x fas-items"></i>
         <% end %>

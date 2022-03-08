@@ -10,7 +10,14 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :chats
   has_one_attached :photo, dependent: :destroy
+  validates :bio, length: { maximum: 200 }
 
+  def unseen_messages
+    @unseen_messages = Chat.where(sender_id: self.id).or(Chat.where(recipient_id: self.id)).map do |chat|
+      chat.messages.where("user_id != ?", self.id).and(chat.messages.where(seen: false))
+    end
+    @unseen_messages.flatten!
+  end
 
   private
 

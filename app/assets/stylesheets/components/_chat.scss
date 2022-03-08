@@ -21,6 +21,10 @@ body {
   text-decoration: none;
 }
 
+.chat-notifications {
+  position: fixed;
+}
+
 .chats-list {
   list-style-type: none;
   color: $tiber;

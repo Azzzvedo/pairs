@@ -9,10 +9,8 @@
   <div style="justify-content: center;">
     <div class="d-none" data-new-session-target="address">
   <h4 mb-5>Where?</h4>
-      <div class="map-style" data-new-session-target="mapContainer">
-        <%= render 'map', markers: @markers %>
-      </div>
-      <input type="text">
+      <div class="map-style" data-new-session-target="mapContainer"></div>
+      <input data-new-session-target="addressInput" type="text">
       <button data-action="click->new-session#displayTime" class="profile-btn">Choose</button>
     </div>
   </div>

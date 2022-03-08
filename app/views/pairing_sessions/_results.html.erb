@@ -2,7 +2,7 @@
 <% if pairing_sessions != nil %>
 <% if pairing_sessions.count > 0 %>
   <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
-    <h4 class="text-center mt-3">Here are your possible pairs!</h4>
+    <h4 class="text-center mt-3">Here are your possible activities!</h4>
     <% pairing_sessions.each do |pairing_session| %>
       <div class="pairing-session-card" data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
         <% if pairing_session.user.photo.attached? %>

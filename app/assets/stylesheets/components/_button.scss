@@ -55,6 +55,24 @@ a.home-btn:hover{
   color: white;
 }
 
+.choose-btn {
+  background-color: $emerald;
+  color: $tiber;
+  border: none;
+  padding: 8px 8px;
+  text-align: center;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  transition: transform .2s;
+}
+
+.choose-btn:hover {
+  color: white;
+}
+
 .logout-btn {
   background-color: #63E1B4;
   text-decoration: none;

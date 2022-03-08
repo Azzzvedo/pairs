@@ -1,3 +1,5 @@
+<h2>What would you like to play?</h2>
+
 <% PairingSession::ACTIVITIES.each do |activity| %>
   <div data-controller="activities">
       <div class="selector-card d-flex justify-content-around" data-action="click->activities#selectActivity" >

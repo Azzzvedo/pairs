@@ -10,7 +10,7 @@
 
   <div>
     <div class="d-none" data-new-session-target="time">
-    <h4 mb-5>When?</h4>
+    <h4 class="pairing-session-header">When?</h4>
       <input type="datetime-local", value="">
       <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
     </div>
@@ -18,9 +18,9 @@
 
   <div style="justify-content: center;">
     <div class="d-none" data-new-session-target="address">
-  <h4 mb-5>Where?</h4>
+  <h4 class="pairing-session-header">Where?</h4>
       <div class="map-style" data-new-session-target="mapContainer"></div>
-      <button data-action="click->new-session#displayPairingSessions" class="profile-btn">Choose</button>
+      <button data-action="click->new-session#displayPairingSessions" class="profile-btn btn-wide">Choose</button>
     </div>
   </div>
 </div> <!-- This is the new_session controller end -->

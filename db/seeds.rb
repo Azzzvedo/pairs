@@ -10,7 +10,7 @@ require "open-uri"
 require "nokogiri"
 # require "pry"
 
-LOCATIONS = ["Hyde Park", "Regents Park", "Primrose Hill", "Richmond Park", "Victoria Park"]
+LOCATIONS = ["Hyde Park, London", "Regents Park, London", "Primrose Hill, London", "Richmond Park, London", "Victoria Park, London"]
 ACTIVITIES = %w[climbing tennis pool squash golf running badminton cycling swimming]
 TIMES = []
 User.destroy_all

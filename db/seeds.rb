@@ -85,7 +85,7 @@ mcenroe = User.new(
   birth_date: '1959-02-16',
   competitiveness: 10
 )
-john_photo = URI.open('https://cdn.cnn.com/cnnnext/dam/assets/130214142218-mcenroe-angry.jpg')
+john_photo = URI.open('https://static.standard.co.uk/s3fs-public/thumbnails/image/2012/06/19/11/JOHN-MCENROE.jpg?width=968')
 mcenroe.photo.attach(io: john_photo, filename: 'john_photo.jpg', content_type: 'image/jpg')
 mcenroe.save!
 

@@ -1,16 +1,7 @@
 class PairingSessionsController < ApplicationController
   def index
     if params[:activity] && params[:time] && params[:address]
-
-      t_now = DateTime.now
-      t_selected = params[:time].to_datetime
-
-      if t_selected - 12.hours > t_now
-        start_time =  t_selected - 12.hours
-      else
-        start_time =  t_now - 1.hours
-      end
-      time_range = (start_time..(params[:time].to_datetime + 12.hours))
+      time_range = set_time_range(params[:time])
 
       request_objects = PairingRequest.where("approved = true").select(:pairing_session_id).distinct.to_a
       approved_pairing_session_ids = request_objects.map {|r| r.pairing_session_id}
@@ -20,8 +11,9 @@ class PairingSessionsController < ApplicationController
       end
       @pairing_session = PairingSession.new(activity: params[:activity], datetime: params[:time], address: params[:address])
     else
-      if params[:activity]
-        @pairing_sessions_for_map = PairingSession.where.not(user: current_user).where(activity: params[:activity])
+      if params[:activity] && params[:time]
+        time_range = set_time_range(params[:time])
+        @pairing_sessions_for_map = PairingSession.where.not(user: current_user).where(activity: params[:activity]).where(datetime: time_range)
           @markers = @pairing_sessions_for_map.geocoded.map do |pairing_session|
           {
             lat: pairing_session.latitude,
@@ -30,9 +22,9 @@ class PairingSessionsController < ApplicationController
             image_url: helpers.asset_url("table-tennis-paddle-ball-solid.svg")
               }
           end
+        end
+        @pairing_session = PairingSession.new
       end
-      @pairing_session = PairingSession.new
-    end
     @pairing_request = PairingRequest.new
     respond_to do |format|
       format.html { render "index" }
@@ -55,6 +47,18 @@ class PairingSessionsController < ApplicationController
   end
 
   private
+
+  def set_time_range(datetime_params)
+    t_now = DateTime.now
+    t_selected = datetime_params.to_datetime
+
+    if t_selected - 12.hours > t_now
+      start_time =  t_selected - 12.hours
+    else
+      start_time =  t_now - 1.hours
+    end
+    (start_time..t_selected + 12.hours)
+  end
 
   def pairing_session_params
     params.require(:pairing_session).permit(:activity, :address, :description, :datetime)

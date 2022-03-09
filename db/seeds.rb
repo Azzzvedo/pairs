@@ -37,7 +37,7 @@ users.each do |user|
       address: LOCATIONS[i],
       description: Faker::Twitter.status[:text],
       time: [0, 15, 30, 45, 60].sample,
-      datetime: Faker::Date.between(from: '2022-03-08', to: '2022-03-11'),
+      datetime: Faker::Time.between_dates(from: Date.today, to: Date.today + 1, period: :day),
       user_id: admin.id
     )
     i += 1
@@ -68,8 +68,69 @@ i = 0
     description: Faker::Twitter.status[:text],
     time: [0, 15, 30, 45, 60].sample,
     user_id: User.all.sample.id,
-    datetime: Faker::Date.between(from: '2022-03-08', to: '2022-03-11')
+    datetime: Faker::Time.between_dates(from: Date.today, to: Date.today + 1, period: :day)
   )
   i += 1
   pairing_session.save!
 end
+
+mcenroe = User.new(
+  email: 'john.mcenroe@gmail.com',
+  password: '123456',
+  address: 'New York',
+  first_name: 'John',
+  last_name: 'McEnroe',
+  gender: 'Male',
+  bio: 'You cannot be serious!',
+  birth_date: '1959-02-16',
+  competitiveness: 10
+)
+john_photo = URI.open('https://cdn.cnn.com/cnnnext/dam/assets/130214142218-mcenroe-angry.jpg')
+mcenroe.photo.attach(io: john_photo, filename: 'john_photo.jpg', content_type: 'image/jpg')
+mcenroe.save!
+
+john_tennis_session = PairingSession.new(
+  activity: 'tennis',
+  address: 'Wimbledon',
+  description: 'Lovely casual game of tennis between friends',
+  time: [0, 15, 30, 45, 60].sample,
+  user_id: mcenroe.id,
+  datetime: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening)
+)
+john_tennis_session.save!
+
+novak = User.new(
+  email: 'novak.djokovic@gmail.com',
+  password: '123456',
+  address: 'New York',
+  first_name: 'Novak',
+  last_name: 'Djokovic',
+  gender: 'Male',
+  bio: '20 time Grand-Slam Winner',
+  birth_date: '1987-05-22',
+  competitiveness: 8
+)
+novak_photo = URI.open('https://cdn-japantimes.com/wp-content/uploads/2022/02/np_file_142642.jpeg')
+novak.photo.attach(io: novak_photo, filename: 'novak_photo.jpg', content_type: 'image/jpg')
+novak.save!
+
+novak_tennis_session = PairingSession.new(
+  activity: 'tennis',
+  address: 'Wimbledon',
+  description: 'Could really do with a game..!',
+  time: [0, 15, 30, 45, 60].sample,
+  user_id: novak.id,
+  datetime: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening)
+)
+novak_tennis_session.save!
+
+ian = User.find_by(email: 'ian.wiggins@gmail.com')
+ian_tennis_session = PairingSession.new(
+  activity: 'tennis',
+  address: 'Wimbledon',
+  description: 'Hey! Looking for a casual tennis sesh if anyone fancies a game?',
+  time: [0, 15, 30, 45, 60].sample,
+  user_id: ian.id,
+  datetime: Faker::Time.between_dates(from: Date.today, to: Date.today, period: :evening)
+)
+ian_tennis_session.save!

@@ -11,7 +11,7 @@ export default class extends Controller {
 
   connect() {
     console.log("mapbox controller connect success")
-    console.log(this.markersValue.length)
+
 
     mapboxgl.accessToken = this.apiKeyValue
 
@@ -30,7 +30,6 @@ export default class extends Controller {
 
   #addMarkersToMap() {
     // if (this.hasMarkersValue) {
-      console.log(this.markersValue)
       this.markersValue.forEach((marker) => {
         const popup = new mapboxgl.Popup().setHTML(marker.info_window)
 

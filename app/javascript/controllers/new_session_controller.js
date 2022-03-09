@@ -24,6 +24,7 @@ export default class extends Controller {
     this.addressTarget.classList.remove("d-none")
     const activity = this.activityTarget.querySelector('input').value
     const time = this.timeTarget.querySelector('input').value
+
     fetch("/pairing_sessions?" + new URLSearchParams({"activity": activity, "time": time }), {
       method: "GET",
       headers: { "Accept": "application/json", "X-CSRF-Token": csrfToken() },
@@ -34,26 +35,19 @@ export default class extends Controller {
       })
   }
 
-  displayTime(event) {
-    event.preventDefault()
-    this.activityTarget.classList.add("d-none")
-    this.timeTarget.classList.remove("d-none")
-  }
-
-  displayDescription(event) {
-    event.preventDefault()
-    this.timeTarget.classList.add("d-none")
-    this.descriptionTarget.classList.remove("d-none")
-  }
-
   displayPairingSessions(event) {
     event.preventDefault()
     this.addressTarget.classList.add("d-none")
+    console.log("connected")
+    let address = ''
+    console.log(this.addressTarget.querySelector('input').value.length)
+    if (this.addressTarget.querySelector('input').value.length !== 0) {
+      address = this.addressTarget.querySelector('input').value
+    } else {
+      address = 'london'
+    }
     const activity = this.activityTarget.querySelector('input').value
-    const address = this.addressTarget.querySelector('input').value
-    console.log(address)
     const time = this.timeTarget.querySelector('input').value
-
 
     fetch("/pairing_sessions?" + new URLSearchParams({ "address": address, "activity": activity, "time": time }), {
       method: "GET",

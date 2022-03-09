@@ -9,11 +9,20 @@
   height: 100px;
   border-top-width: 3px;
   border-top-style: hidden;
+  font-size: 1.4rem;
+  padding-top: 0;
 
   li {
     display: inline;
     justify-content: space-evenly;
   }
+
+  #navbar-chat-icon {
+    position: relative;
+  }
+
+
+
 
   a {
     text-decoration: none;
@@ -25,4 +34,24 @@
   list-style-type: none;
   align-content: center;
   padding: 24px;
+}
+
+.nav-notification-container{
+  position: relative;
+  .chat-notifications {
+    position: absolute;
+    top: 8px;
+    left: 55px;
+    background-color: red;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+  }
 }

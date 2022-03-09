@@ -2,7 +2,7 @@ import { Controller } from "stimulus"
 import { csrfToken } from "@rails/ujs"
 
 export default class extends Controller {
-  static targets = ["activity", "address", "time", "description", "form", "container", "button", "mapContainer"]
+  static targets = ["activity", "address", "time", "description", "form", "container", "button", "mapContainer", "addressInput"]
 
   connect() {
     console.log("new_session controller connect success")
@@ -47,8 +47,9 @@ export default class extends Controller {
     event.preventDefault()
     this.timeTarget.classList.add("d-none")
     const activity = this.activityTarget.querySelector('input').value
-    const address = this.addressTarget.querySelector('input').value
+    const address = this.addressInputTarget.value
     const time = this.timeTarget.querySelector('input').value
+
 
     fetch("/pairing_sessions?" + new URLSearchParams({ "address": address, "activity": activity, "time": time }), {
       method: "GET",

@@ -1,4 +1,11 @@
 // Specific CSS for your home-page
+.home-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 48px;
+  background-color: white;
+}
 
 .flex{
   display: flex;
@@ -39,4 +46,8 @@
 
 .card {
   margin-bottom: 16px;
+}
+
+.banner {
+
 }

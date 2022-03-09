@@ -9,7 +9,7 @@
           <div class="carousel-item <%= 'active' if index == 0 %>">
             <div class="pairing-session-card " data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
               <% if pairing_session.user.photo.attached? %>
-                <%= cl_image_tag pairing_session.user.photo.key, height: 150, width: 150, crop: :fill,  class: "pairing-session-card-image" %>
+                <%= cl_image_tag pairing_session.user.photo.key, height: 400, width: 400, crop: :fill,  class: "pairing-session-card-image" %>
               <% else %>
                 <img src="<%= image_path("blank-profile-picture-973460_1280.png") %>" alt="" class="pairing-session-card-image">
               <% end %>

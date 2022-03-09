@@ -1,4 +1,17 @@
 // Specific CSS for your home-page
+.home-header {
+  background-color: $tiber;
+  color: $emerald;
+  height: 72px;
+  position: relative;
+  h1 {
+    position: absolute;
+    top: 50%;
+    right: 38%;
+    transform: translate(-50%, -50%);
+  }
+}
+
 .home-cards {
   display: flex;
   flex-direction: column;

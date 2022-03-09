@@ -5,7 +5,8 @@
   background-position: center;
   padding: 150px 0;
   width: 414px;
-  height: 484px;
+  height: 805px;
+  position: relative;
 }
 
 .banner h1 {
@@ -14,6 +15,9 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  position: absolute;
+  left: 12%;
+  top: 5%;
 }
 
 .banner p {

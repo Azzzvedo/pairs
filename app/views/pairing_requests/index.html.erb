@@ -9,11 +9,11 @@
                   <div data-controller="request-card">
                     <div class="pairing-session-card">
                       <% if pairing_request.user.photo.attached? %>
-                        <%= cl_image_tag pairing_request.user.photo.key, height: 150, width: 150, crop: :fill,  class: "pairing-session-card-image" %>
+                        <%= cl_image_tag pairing_request.user.photo.key, height: 400, width: 400, crop: :fill,  class: "pairing-session-card-image" %>
                       <% else %>
                         <img src="<%= image_path("blank-profile-picture-973460_1280.png") %>" alt="" class="pairing-session-card-image">
                       <% end %>
-                      <h4><%= "#{pairing_request.user.first_name}'s #{pairing_request.pairing_session.activity} session!" %>
+                      <h4><%= "#{pairing_request.user.first_name} wants to join you for #{pairing_request.pairing_session.activity}!" %>
                       <p><%= pairing_request.introduction %></p>
                       <p><%= pairing_request.pairing_session.datetime.strftime("%a %b %e at %l:%M %p") %></p>
                       <p><%= pairing_request.pairing_session.address %></p>

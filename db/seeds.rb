@@ -37,7 +37,7 @@ users.each do |user|
       address: LOCATIONS[i],
       description: Faker::Twitter.status[:text],
       time: [0, 15, 30, 45, 60].sample,
-      datetime: Faker::Date.between(from: '2022-03-11', to: '2022-03-25'),
+      datetime: Faker::Date.between(from: '2022-03-08', to: '2022-03-11'),
       user_id: admin.id
     )
     i += 1
@@ -68,7 +68,7 @@ i = 0
     description: Faker::Twitter.status[:text],
     time: [0, 15, 30, 45, 60].sample,
     user_id: User.all.sample.id,
-    datetime: Faker::Date.between(from: '2022-03-11', to: '2022-03-25')
+    datetime: Faker::Date.between(from: '2022-03-08', to: '2022-03-11')
   )
   i += 1
   pairing_session.save!

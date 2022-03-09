@@ -1,10 +1,11 @@
-
-<div class="pairing-session-card">
-  <% if @pairing_request.user == current_user %>
-    <p>Your <%= @pairing_request.pairing_session.activity %> request has been sent to <%= @pairing_request.pairing_session.user.first_name.capitalize %></p>
-  <% elsif @pairing_request.pairing_session.user == current_user%>
-    <h4>You have a <%= @pairing_request.pairing_session.activity %> request</h4>
-    <h4><%= @pairing_request.user.first_name.capitalize %> wants to join up with you!</h4>
-    <p><%= @pairing_request.introduction %></p>
-  <% end %>
+<div class = "container">
+  <div class="pairing-session-card">
+    <% if @pairing_request.user == current_user %>
+      <p>Your <%= @pairing_request.pairing_session.activity %> request has been sent to <%= @pairing_request.pairing_session.user.first_name.capitalize %></p>
+    <% elsif @pairing_request.pairing_session.user == current_user%>
+      <h4>You have a <%= @pairing_request.pairing_session.activity %> request</h4>
+      <h4><%= @pairing_request.user.first_name.capitalize %> wants to join up with you!</h4>
+      <p><%= @pairing_request.introduction %></p>
+    <% end %>
+  </div>
 </div>

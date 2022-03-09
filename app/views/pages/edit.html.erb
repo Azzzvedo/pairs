@@ -1,22 +1,23 @@
+<div class = "container">
+  <div><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
+  </div>
 
-<div><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
-</div>
-
-<div class="flex-box">
-  <%= simple_form_for(@user, url: my_profile_path(@user), method: :patch) do |f| %>
-    <%= f.input :photo, as: :file, label: "Profile photo" %>
-    <%= f.input :email %>
-    <%= f.input :reset_password_token, label: "Reset password" %>
-    <%= f.input :first_name %>
-    <%= f.input :last_name %>
-    <%= f.input :address %>
-    <%= f.input :gender, collection: ['Female', 'Male', 'Non-binary', 'Transgender','Intersex', 'I prefer not to say']%>
-    <%= f.input :bio %>
-    <%= f.input :birth_date, as: :date, html5: true%>
-    <%= f.input :competitiveness, collection: ["Fun", "Intermediate", "Advanced", "Expert", "Professional"] %>
-    <div class="d-flex justify-content-between">
-      <%= f.button :submit, class: "profile-btn"%>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
-     </div>
-  <% end %>
+  <div class="flex-box">
+    <%= simple_form_for(@user, url: my_profile_path(@user), method: :patch) do |f| %>
+      <%= f.input :photo, as: :file, label: "Profile photo" %>
+      <%= f.input :email %>
+      <%= f.input :reset_password_token, label: "Reset password" %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :address %>
+      <%= f.input :gender, collection: ['Female', 'Male', 'Non-binary', 'Transgender','Intersex', 'I prefer not to say']%>
+      <%= f.input :bio %>
+      <%= f.input :birth_date, as: :date, html5: true%>
+      <%= f.input :competitiveness, collection: ["Fun", "Intermediate", "Advanced", "Expert", "Professional"] %>
+      <div class="d-flex justify-content-between">
+        <%= f.button :submit, class: "profile-btn"%>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "logout-btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>

@@ -1,45 +1,49 @@
 
-<style>body {background-color: white;}</style>
-
+<%# <style>body {background-color: white;}</style> %>
+<div class="color">
 <h1>PAIRS</h1>
+</div>
 
-<%# <div class="total-container">
-  <div class="container-fluid"> %>
-     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5908430/pexels-photo-5908430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
-              <div class="container">
-                <h1>Find an active buddy now...</h1>
-                  <div class="sign-in" >
-                    <% if user_signed_in? %>
-                    <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn'%>
-                    <% else %>
-                    <ul>
-                    <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
-                    <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
-                    </ul>
-                    <% end %>
-                  </div>
-              </div>
-          </div>
-      <div class="home-cards mb-2">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://images.pexels.com/photos/5920998/pexels-photo-5920998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="A Pair of Friends Cycling">
-          <div class="card-body">
-            <p class="home-card-text">Find an activity buddy fast.</p>
+
+<div class="total-container">
+  <div class="container-fluid">
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5908430/pexels-photo-5908430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+      <div class="container">
+        <h1>Find an active buddy now...</h1>
+        <div class="sign-in" >
+          <% if user_signed_in? %>
+          <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn'%>
+          <% else %>
+          <ul>
+          <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
+          <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
+          </ul>
+          <% end %>
         </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://images.pexels.com/photos/7992158/pexels-photo-7992158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="A Woman Kickboxing With Man">
-          <div class="card-body">
-            <p class="home-card-text">Find a buddy to do an activity on short notice and in your desired area.</p>
-        </div>
-          </div>
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="https://images.pexels.com/photos/5044123/pexels-photo-5044123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Man Spotting Another Man Lifting">
-          <div class="card-body">
-            <p class="home-card-text">Select your activity, time, location and begin chatting with likeminded people.</p>
-        </div>
-          </div>
       </div>
-  <%# </div>
-</div> %>
+    </div>
+    <div class="home-cards">
+      <div class="home-card" style="width: 18rem;">
+        <img class="card-img-top" src="https://images.pexels.com/photos/5920998/pexels-photo-5920998.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="A Pair of Friends Cycling">
+        <div class="card-body">
+          <p class="home-card-text">Find an activity buddy fast.</p>
+        </div>
+      </div>
+      <div class="home-card" style="width: 18rem;">
+        <img class="card-img-top" src="https://images.pexels.com/photos/7992158/pexels-photo-7992158.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="A Woman Kickboxing With Man">
+        <div class="card-body">
+          <p class="home-card-text">Find a buddy to do an activity on short notice and in your desired area.</p>
+        </div>
+      </div>
+      <div class="home-card" style="width: 18rem;">
+        <img class="card-img-top" src="https://images.pexels.com/photos/5044123/pexels-photo-5044123.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Man Spotting Another Man Lifting">
+        <div class="card-body">
+          <p class="home-card-text">Select your activity, time, location and begin chatting with likeminded people.</p>
+        </div>
+      </div>
+
+    </div>
+    <%= render "shared/navbar" %>
+  </div>
+</div>
 

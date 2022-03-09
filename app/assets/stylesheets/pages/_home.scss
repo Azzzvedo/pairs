@@ -4,7 +4,18 @@
   flex-direction: column;
   align-items: center;
   margin-top: 48px;
-  background-color: white;
+  background-color: $mint;
+}
+
+
+.home-card {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  margin: 20px 0;
+  img {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
 }
 
 .flex{
@@ -48,6 +59,17 @@
   margin-bottom: 16px;
 }
 
-.banner {
 
+
+.card-body {
+  background-color: $tiber;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  p {
+    color: $emerald;
+  }
+  img {
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
 }

@@ -1,6 +1,5 @@
 <div data-controller="new-session"> <!-- This is the new_session controller start -->
   <%= render 'pairing_request_modal' %> <!-- This renders the pairing request modal -->
-
   <div>
     <div data-new-session-target="activity" data-action="activityEvent->new-session#handleEvent">
       <div class="d-none"><input type="text"></div>
@@ -10,7 +9,7 @@
 
   <div>
     <div class="d-none" data-new-session-target="time">
-    <h4 class="pairing-session-header">When?</h4>
+      <h4 class="pairing-session-header">When?</h4>
       <input type="datetime-local", value="">
       <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
     </div>
@@ -18,7 +17,7 @@
 
   <div style="justify-content: center;">
     <div class="d-none" data-new-session-target="address">
-  <h4 class="pairing-session-header">Where?</h4>
+      <h4 class="pairing-session-header">Where?</h4>
       <div class="map-style" data-new-session-target="mapContainer"></div>
       <button data-action="click->new-session#displayPairingSessions" class="profile-btn btn-wide">Choose</button>
     </div>

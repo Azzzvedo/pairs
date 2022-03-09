@@ -1,20 +1,20 @@
 
 <%# <style>body {background-color: white;}</style> %>
-<div class="color">
+<%# <div class="home-header">
 <h1>PAIRS</h1>
-</div>
+</div> %>
 
 
 <div class="total-container">
   <div class="container-fluid">
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5908430/pexels-photo-5908430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
       <div class="container">
-        <h1>Find an active buddy now...</h1>
+        <h1>Find an activity buddy now...</h1>
         <div class="sign-in" >
           <% if user_signed_in? %>
-          <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn'%>
+          <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn3'%>
           <% else %>
-          <ul>
+          <ul class="sign-in-btns">
           <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
           <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
           </ul>
@@ -46,4 +46,3 @@
     <%= render "shared/navbar" %>
   </div>
 </div>
-

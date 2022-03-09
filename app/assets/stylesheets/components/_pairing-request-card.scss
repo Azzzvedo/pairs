@@ -11,3 +11,12 @@
   display: flex;
   justify-content: space-between;
 }
+
+.empty-requests {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 70%;
+}

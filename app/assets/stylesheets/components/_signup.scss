@@ -1,14 +1,16 @@
 .total-container {
   position: absolute;
-  top: 38%;
-  left: 23%;
-  background-color: hsla(163, 61%, 92%, 1) !important;
+  top: 8%;
+  // left: 23%;
+  background-color: white !important;
 }
 
 .container-fluid {
   text-align: center;
   margin: 0;
   color: white;
+  padding-left: 0 !important;
+  background-color: white;
   // position: absolute;
   // transform: translate(-50%, -50%);
 }

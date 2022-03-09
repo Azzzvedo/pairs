@@ -11,7 +11,7 @@ require "nokogiri"
 # require "pry"
 
 LOCATIONS = ["Hyde Park, London", "Regents Park, London", "Primrose Hill, London", "Richmond Park, London", "Victoria Park, London"]
-ACTIVITIES = %w[climbing tennis pool squash golf running badminton cycling swimming]
+ACTIVITIES = %w[climbing tennis golf running badminton cycling swimming]
 TIMES = []
 User.destroy_all
 PairingSession.destroy_all

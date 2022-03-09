@@ -1,6 +1,6 @@
 .pairing-session-card {
-  height: 600px;
-  margin: 2rem 0rem 2rem 0rem;
+  height: 650px;
+  margin: 2rem 1.5rem 2rem 1.5rem;
   padding: 2rem;
   background: linear-gradient(rgb(42, 231, 164), rgb(0, 210, 132));
   color: #012E38;
@@ -8,13 +8,18 @@
   position: relative;
   p {
     font-family: $body-font;
+    font-size: 16px;
+    margin-top: 12px;
+  }
+  h4 {
+    margin-top: 8px;
   }
 }
 
 .pairing-session-button-container {
   display: flex;
   justify-content: space-between;
-
+  margin-top: 36px;
 }
 
 .pairing-session-card-image {

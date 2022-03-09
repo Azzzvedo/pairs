@@ -21,10 +21,6 @@ body {
   text-decoration: none;
 }
 
-.chat-notifications {
-  position: fixed;
-}
-
 .chats-list {
   list-style-type: none;
   color: $tiber;
@@ -48,7 +44,7 @@ body {
   top: 72%;
   width: 80%;
   padding-bottom: 20px;
-  background-color: $mint;
+  background-color: white
 }
 
 .chat-button {

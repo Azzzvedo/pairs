@@ -18,8 +18,7 @@
               <p><%= pairing_session.datetime.strftime("%a %b %e at %l:%M %p") %></p>
               <p><%= pairing_session.address %></p>
               <div class="pairing-session-button-container">
-                <button class="select-btn mb-3">Reject</button>
-                <button data-action="click->session-card#sendRequest" data-toggle="modal" data-target="#exampleModal" class="select-btn-affirmative mb-3">Pair</button>
+                <button data-action="click->session-card#sendRequest" data-toggle="modal" data-target="#exampleModal" class="select-btn-pair mb-3">Pair</button>
               </div>
             </div>
           </div>

@@ -9,15 +9,18 @@
   <div class="container-fluid">
     <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/5908430/pexels-photo-5908430.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
       <div class="container">
-        <h1>Find an activity buddy now...</h1>
+        <h1 class="pairs-homepage">Pairs</h1>
+        <h2 class="homepage-h2">Find an activity buddy now...</h2>
         <div class="sign-in" >
           <% if user_signed_in? %>
-          <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn3'%>
+            <%= link_to "Pair Up!", pairing_sessions_path, class: 'home-btn3'%>
           <% else %>
-          <ul class="sign-in-btns">
-          <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
-          <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
-          </ul>
+            <div class="sign-in-btns">
+              <ul>
+                <li><%= link_to 'Sign In', new_user_session_path, class: 'home-btn2'%></li>
+                <li><%= link_to 'Sign Up', new_user_session_path, class: 'home-btn'%></li>
+              </ul>
+            </div>
           <% end %>
         </div>
       </div>

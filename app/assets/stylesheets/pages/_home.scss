@@ -45,6 +45,7 @@
     font-family: 'Londrina Solid';
     color: $emerald;
     font-size: 42px;
+    top: 75%;
   }
 
   h3{
@@ -85,4 +86,16 @@
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
   }
+}
+
+.homepage-h2 {
+  position: absolute;
+  bottom: 27%;
+  left: 17%;
+}
+
+.signup-h2 {
+  position: absolute;
+
+  // justify-content: center;
 }

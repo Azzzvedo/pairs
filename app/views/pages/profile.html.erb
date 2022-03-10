@@ -9,14 +9,15 @@
       <% end %>
     </div>
 
+    <div class="bio-div mx-4">
+      <%= @user.bio %>
+    </div>
+
     <ul class="profile-list pa-bold-highlight">
       <div class="profile-info"><i class="fas fa-venus-mars"></i> <li id="gender"><mark><%= @user.gender%></mark></li></div>
       <div class="profile-info"><i class="fas fa-birthday-cake"></i><li id="age"><mark><%= ((Time.zone.now - @user.birth_date.to_time) / 1.year.seconds).floor if @user.birth_date.present? %></mark></li></div>
       <div class="profile-info"><i class="fas fa-dumbbell"></i><li id="competitiveness"><mark><%= @user.competitiveness %></mark></li></div>
     </ul>
-    <div class="bio-div">
-      <%= @user.bio %>
-    </div>
   </div>
   <% if @user == current_user %>
     <div class="edit-button">

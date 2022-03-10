@@ -1,5 +1,5 @@
-<div class = "container p-4">
-  <h1 class="mb-3 text-center">My Activity Requests</h1>
+<div class="container">
+  <h1 class="page-header">My Activity Requests</h1>
   <% if @pairing_requests.count > 0 %>
     <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
         <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -45,7 +45,7 @@
         </div>
   <% else %>
     <div class="empty-requests">
-      <h3> It looks like you don't have requests yet....but fear not! Click here find an activity!</h3>
+      <h2> It looks like you don't have requests yet....but fear not! Click here find an activity!</h2>
       <%= link_to "Find activity!", pairing_sessions_path, class: 'profile-btn'%>
     </div>
   <% end %>

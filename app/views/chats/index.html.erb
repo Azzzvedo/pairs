@@ -1,4 +1,6 @@
 <div class="container p-4">
+  <h1 class="page-header">My Chats</h1>
+
   <% if @chats.count > 0 %>
     <h1 style="text-align: center;">My Pairs</h1>
       <ul>
@@ -17,8 +19,8 @@
       </ul>
   <% else %>
     <div class="empty-chat">
-      <h2>It looks like you don't have any chats yet...but don't worry! Click here to find a pair!</h2>
-      <%= link_to "Find a pair!", pairing_sessions_path, class: 'profile-btn'%>
+      <h2>It looks like you don't have any chats yet...but fear not! Click here to find a partner!</h2>
+      <%= link_to "Find a partner!", pairing_sessions_path, class: 'profile-btn'%>
     </div>
   <% end %>
 </div>

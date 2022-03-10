@@ -3,4 +3,4 @@
 meta_product_name: "Pairs"
 meta_title: "Pairs - Find an activity buddy. Fast."
 meta_description: "Finding an activity buddy nearby at short notice"
-meta_image: "pairs.png" # should exist in `app/assets/images/`
+meta_image: "pairs_photo.png" # should exist in `app/assets/images/`

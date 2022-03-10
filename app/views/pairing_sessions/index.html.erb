@@ -1,7 +1,6 @@
-<div data-controller="new-session">
-<!-- This is the new_session controller start -->
+<div data-controller="new-session"> <!-- This is the new_session controller start -->
   <%= render 'pairing_request_modal' %> <!-- This renders the pairing request modal -->
-  <div class="container pb-2">
+  <div>
     <div data-new-session-target="activity" data-action="activityEvent->new-session#handleEvent">
       <div class="d-none"><input type="text"></div>
       <%= render 'activities' %> <!-- This renders the activities buttons -->
@@ -9,10 +8,23 @@
   </div>
 
   <div>
-    <div class="pairing-session-time-container d-none" data-new-session-target="time">
+    <div class="d-none" data-new-session-target="time">
       <h4 class="pairing-session-header">When?</h4>
-      <input type="datetime-local", value="">
-      <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
+      <div class="pairing-session-time-container">
+        <div class="selector-card d-flex justify-content-around" data-action="" >
+          <div class=""><h1 data-action="click->new-session#setTimeNow click->new-session#displayAddress" data-new-session-target="now">Now</h1></div>
+        </div>
+        <div class="selector-card d-flex justify-content-around" data-action="" >
+          <div class=""><h1 data-action="click->new-session#setTimeTonight click->new-session#displayAddress" data-new-session-target="tonight">Tonight</h1></div>
+        </div>
+        <div class="selector-card d-flex justify-content-around" data-action="" >
+          <div class=""><h1 data-action="click->new-session#setTimeTommorow click->new-session#displayAddress" data-new-session-target="tomorrow">Tommorow</h1></div>
+        </div>
+        <div class="time-form">
+          <input type="datetime-local", value="">
+          <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -24,4 +36,3 @@
     </div>
   </div>
 </div> <!-- This is the new_session controller end -->
-<%# </div> %>

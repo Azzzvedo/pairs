@@ -1,21 +1,23 @@
-<div class="container" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>" data-current-user-id="<%= current_user.id %>">
-  <a class="chat-body" href="<%= my_profile_path(@partner.id) %>">
-    <div class="chat-header">
-      <h1><%= @partner.first_name %></h1>
-      <% if @partner.photo.attached? %>
-        <div><%= cl_image_tag @partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
+<div class ="container p-3">
+  <div class="container" data-controller="chat-subscription" data-chat-subscription-chat-id-value="<%= @chat.id %>" data-current-user-id="<%= current_user.id %>">
+    <a class="chat-body" href="<%= my_profile_path(@partner.id) %>">
+      <div class="chat-header">
+        <h1><%= @partner.first_name %></h1>
+        <% if @partner.photo.attached? %>
+          <div><%= cl_image_tag @partner.photo.key, height: 50, width: 50, crop: :fill,  class: "chat-picture" %></div>
+        <% end %>
+      </div>
+    </a>
+    <div class="messages" data-chat-subscription-target="messages">
+      <% @chat.messages.each do |message| %>
+        <%= render 'messages/message', message: message %>
       <% end %>
-    </div>
-  </a>
-  <div class="messages" data-chat-subscription-target="messages">
-    <% @chat.messages.each do |message| %>
-      <%= render 'messages/message', message: message %>
-    <% end %>
-    <div class="chat-form">
-      <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form", loader_user_id_value: current_user.id }} do |f| %>
-        <%= f.input :content, label: false, autofocus: true, placeholder: "Message #{@partner.first_name}...", class: 'chat-content' %>
-        <%= f.button :submit, 'Send', class: "chat-button" %>
-      <% end %>
+      <div class="chat-form">
+        <%= simple_form_for [@chat, @message], remote: true, html: {data: {chat_subscription_target: "form", loader_user_id_value: current_user.id }} do |f| %>
+          <%= f.input :content, label: false, autofocus: true, placeholder: "Message #{@partner.first_name}...", class: 'chat-content' %>
+          <%= f.button :submit, 'Send', class: "chat-button" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

@@ -11,6 +11,15 @@
   flex-direction: column;
   text-align: center;
   margin-top: 70%;
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 90%;
+}
+
+.mb-3.text.required.pairing_session_description {
+  border: solid 1px $tiber;
+  background-color: white;
 }
 
 .btn-wide {

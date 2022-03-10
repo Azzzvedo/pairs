@@ -33,18 +33,19 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-
   </div>
 <% else %>
   <div class="empty-sessions">
-    <h3>Looks like there aren't any existing sessions at the moment, but fear not..! You can create a session and someone else can join!</h3>
+    <h3>It looks like there aren't any existing sessions at the moment, but fear not! <br>You can create a session for someone else to join!</h3>
       <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %>
       <div class="d-none">
         <%= f.input :activity %>
         <%= f.input :address %>
         <%= f.input :datetime, html5: true %>
       </div>
-      <%= f.input :description, label: false %>
+      <div class="description-form">
+      <%= f.input :description, placeholder: 'Activity description...', label: false %>
+      </div>
       <%= f.submit 'Create a session', class: "btn profile-btn" %>
     <% end %>
   </div>

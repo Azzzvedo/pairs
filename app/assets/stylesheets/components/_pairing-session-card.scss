@@ -53,3 +53,12 @@
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
 }
+
+.edit{
+    img{
+      border-radius: 8px;
+      width: 100%;
+      box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
+      object-fit: cover;
+    }
+}

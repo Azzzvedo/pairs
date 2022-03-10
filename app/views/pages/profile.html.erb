@@ -1,11 +1,11 @@
-<div class = "container">
-  <div class="profile-container">
+<div class = "container p-4">
+  <div class="profile-container ">
     <h1><%= @user.first_name%></h1>
     <div class="center">
       <% if @user.photo.attached? %>
         <%= cl_image_tag(@user.photo.key, height: 400, width: 400, crop: :fill) %>
       <% else %>
-        <img src="<%= image_path("blank-profile-picture-973460_1280.png") %>" alt="" class="pairing-session-card-image">
+        <img src="<%= image_path("blank-profile-picture-973460_1280.png") %>" alt="" class="pairing-session-card-image" >
       <% end %>
     </div>
 

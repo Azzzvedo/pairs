@@ -1,6 +1,6 @@
 <div data-controller="new-session"> <!-- This is the new_session controller start -->
   <%= render 'pairing_request_modal' %> <!-- This renders the pairing request modal -->
-  <div>
+  <div class="container p-4">
     <div data-new-session-target="activity" data-action="activityEvent->new-session#handleEvent">
       <div class="d-none"><input type="text"></div>
       <%= render 'activities' %> <!-- This renders the activities buttons -->

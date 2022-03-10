@@ -36,12 +36,18 @@
 
 .pairing-session-button-container {
   margin-top: 36px;
-
   bottom: 10%;
 }
 
-.pairing-session-card-image {
+.pairing-session-card-image  {
   width: 100%;
   height: auto;
   margin-bottom: .5rem;
+}
+
+.center{
+  img{
+    width: 100%;
+    object-fit: cover;
+  }
 }

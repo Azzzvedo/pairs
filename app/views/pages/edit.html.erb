@@ -1,5 +1,6 @@
-<div class = "container">
-  <div><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
+<div class ="container pt-4 pb-2">
+    <h2>Edit your profile page</h2>
+  <div class= "pb-2 mr-5"><%= @user.photo.attached? ? cl_image_tag( @user.photo.key, height: 300, width: 400, crop: :fill) : "You have not uploaded a photo" %>
   </div>
 
   <div class="flex-box">

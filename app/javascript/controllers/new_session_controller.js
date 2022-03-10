@@ -15,21 +15,28 @@ export default class extends Controller {
     this.activityTarget.querySelector('input').setAttribute('value', activity)
     this.activityTarget.classList.add("d-none")
     this.timeTarget.classList.remove("d-none")
-    const str = (new Date()).toISOString().slice(0, 16).replace(/-/g, "-");
-    this.timeTarget.querySelector('input').setAttribute('value', str)
+    const date = (new Date()).toISOString().slice(0, 16).replace(/-/g, "-");
+    this.timeTarget.querySelector('input').setAttribute('value', date)
   }
 
   setTimeNow() {
-    console.log((new Date()).toISOString().slice(0, 16).replace(/-/g, "-"))
+    const date = (new Date()).toISOString().slice(0, 16).replace(/-/g, "-");
+    this.timeTarget.querySelector('input').setAttribute('value', date)
   }
 
   setTimeTonight() {
     const date = (new Date())
-    console.log(date)
+    date.setHours(18)
+    date.setMinutes(0)
+    this.timeTarget.querySelector('input').setAttribute('value', date.toISOString().slice(0, 16).replace(/-/g, "-"))
   }
 
   setTimeTommorow() {
-    console.log((new Date()).toISOString().slice(0, 16).replace(/-/g, "-"))
+    const date = (new Date())
+    date.setDate(date.getDate() + 1)
+    date.setHours(12)
+    date.setMinutes(0)
+    this.timeTarget.querySelector('input').setAttribute('value', date.toISOString().slice(0, 16).replace(/-/g, "-"))
   }
 
 

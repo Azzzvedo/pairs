@@ -16,10 +16,31 @@
 .btn-wide {
   margin: 1.5rem 1rem 0 1rem;
   width: fill;
-
+  font-family: $headers-font;
+  font-size: 1.5rem;
+  height: 4rem;
 }
 
 .pairing-session-time-container {
-  margin-top: 30vh;
-  padding-left: 1rem;
+  margin-top: 25vh;
+  margin-right: 1rem;
+  .profile-btn {
+    width: 25%;
+    margin-left: 5%;
+    margin-top: .5rem;
+    font-family: $headers-font;
+    font-size: 1.5rem;
+    height: 4rem;
+  }
+  input {
+    margin-left: 1rem;
+    width: 60%;
+    height: 4rem;
+    font-size: larger;
+    padding-left: .5rem;
+  }
+}
+
+.pairing-session-time-container {
+
 }

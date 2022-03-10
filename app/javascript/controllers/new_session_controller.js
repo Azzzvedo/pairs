@@ -24,7 +24,8 @@ export default class extends Controller {
   }
 
   setTimeTonight() {
-    console.log((new Date().setHours( dt.getHours() + 2 )))
+    const date = (new Date())
+    console.log(date)
   }
 
   setTimeTommorow() {

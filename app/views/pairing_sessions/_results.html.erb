@@ -1,12 +1,11 @@
-
 <% if pairing_sessions != nil %>
   <% if pairing_sessions.count > 0 %>
-    <div data-new-session-target="pairing-sessions" class="pairing-session-card-container">
+    <div data-new-session-target="pairing-sessions" class="pairing-session-card-container"> <!-- div 1 open -->
       <h4 class="text-center mt-3">Here are your possible activites!</h4>
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <% pairing_sessions.each_with_index do |pairing_session, index| %>
-            <div class="carousel-item <%= 'active' if index == 0 %>">
+      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel"> <!-- div 2 open -->
+        <div class="carousel-inner"> <!-- div 3 open -->
+          <% pairing_sessions.each_with_index do |pairing_session, index| %> <!-- pairing session itereation open -->
+            <div class="carousel-item <%= 'active' if index == 0 %>"> <!-- div 4 open -->
               <div class="pairing-session-card " data-controller="session-card" data-id="<%= pairing_session.id %>" data-user-id="<%= current_user.id %>">
                 <% if pairing_session.user.photo.attached? %>
                   <%= cl_image_tag pairing_session.user.photo.key, height: 400, width: 400, crop: :fill,  class: "pairing-session-card-image" %>
@@ -22,9 +21,8 @@
                 </div>
               </div>
             </div>
-          </div>
-        <% end %>
-      </div>
+          <% end %> <!-- pairing session itereation end -->
+        </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -34,21 +32,21 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-  </div>
-<% else %>
-  <div class="empty-sessions">
-    <h3>It looks like there aren't any existing sessions at the moment, but fear not! <br>You can create a session for someone else to join!</h3>
-      <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %>
-      <div class="d-none">
-        <%= f.input :activity %>
-        <%= f.input :address %>
-        <%= f.input :datetime, html5: true %>
-      </div>
-      <div class="description-form">
-      <%= f.input :description, placeholder: 'Activity description...', label: false %>
-      </div>
-      <%= f.submit 'Create a session', class: "btn profile-btn" %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div class="empty-sessions">
+      <h3>It looks like there aren't any existing sessions at the moment, but fear not! <br>You can create a session for someone else to join!</h3>
+      <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %> <!-- This is the form start -->
+        <div class="d-none">
+          <%= f.input :activity %>
+          <%= f.input :address %>
+          <%= f.input :datetime, html5: true %>
+        </div>
+        <div class="description-form">
+        <%= f.input :description, placeholder: 'Activity description...', label: false %>
+        </div>
+        <%= f.submit 'Create a session', class: "btn profile-btn" %>
+      <% end %> <!-- This is the form end -->
+    </div>
   <% end %>
 <% end %>

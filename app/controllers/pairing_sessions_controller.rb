@@ -25,6 +25,7 @@ class PairingSessionsController < ApplicationController
         end
         @pairing_session = PairingSession.new
       end
+      p @pairing_sessions
     @pairing_request = PairingRequest.new
     respond_to do |format|
       format.html { render "index" }

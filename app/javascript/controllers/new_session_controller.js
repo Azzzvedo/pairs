@@ -35,6 +35,26 @@ export default class extends Controller {
       })
   }
 
+  setTimeNow() {
+    const date = (new Date()).toISOString().slice(0, 16).replace(/-/g, "-");
+    this.timeTarget.querySelector('input').setAttribute('value', date)
+  }
+
+  setTimeTonight() {
+    const date = (new Date())
+    date.setHours(18)
+    date.setMinutes(0)
+    this.timeTarget.querySelector('input').setAttribute('value', date.toISOString().slice(0, 16).replace(/-/g, "-"))
+  }
+
+  setTimeTommorow() {
+    const date = (new Date())
+    date.setDate(date.getDate() + 1)
+    date.setHours(12)
+    date.setMinutes(0)
+    this.timeTarget.querySelector('input').setAttribute('value', date.toISOString().slice(0, 16).replace(/-/g, "-"))
+  }
+
   displayPairingSessions(event) {
     event.preventDefault()
     this.addressTarget.classList.add("d-none")

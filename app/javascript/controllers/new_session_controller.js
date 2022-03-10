@@ -19,6 +19,17 @@ export default class extends Controller {
     this.timeTarget.querySelector('input').setAttribute('value', str)
   }
 
+  setTimeNow() {
+    console.log((new Date()).toISOString().slice(0, 16).replace(/-/g, "-"))
+  }
+
+  setTimeTonight() {
+    console.log((new Date().setHours( dt.getHours() + 2 )))
+  }
+
+  setTimeTommorow() {
+    console.log((new Date()).toISOString().slice(0, 16).replace(/-/g, "-"))
+  }
 
 
   displayAddress() {

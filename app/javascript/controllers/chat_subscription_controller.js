@@ -38,11 +38,12 @@ export default class extends Controller {
       })
     }
 
-  #insertMessageScrollDownAndResetForm(data) {
-    console.log(data)
-    this.messagesTarget.insertAdjacentHTML("beforeend", data)
-    this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-    this.formTarget.scrollIntoView()
-    this.styleMessages()
-  }
+    #insertMessageScrollDownAndResetForm(data) {
+      console.log(data)
+      this.messagesTarget.insertAdjacentHTML("beforeend", data)
+      this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
+      this.formTarget.reset()
+      this.formTarget.scrollIntoView()
+      this.styleMessages()
+    }
 }

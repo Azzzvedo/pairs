@@ -19,6 +19,8 @@ export default class extends Controller {
     this.timeTarget.querySelector('input').setAttribute('value', str)
   }
 
+
+
   displayAddress() {
     this.timeTarget.classList.add("d-none")
     this.addressTarget.classList.remove("d-none")

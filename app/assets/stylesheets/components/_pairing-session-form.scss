@@ -11,6 +11,25 @@
 }
 
 .pairing-session-time-container {
-  margin-top: 30vh;
+  margin-top: 20vh;
   padding-left: 1rem;
+}
+
+.time-form {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  .profile-btn {
+    width: 25%;
+    font-family: $headers-font;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    margin-left: 5%;
+
+  }
+  input {
+    width: 65%;
+    height: 3rem;
+    font-size: larger;
+    padding-left: 1rem;
+  }
 }

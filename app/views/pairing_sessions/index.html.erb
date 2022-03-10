@@ -10,8 +10,19 @@
   <div>
     <div class="pairing-session-time-container d-none" data-new-session-target="time">
       <h4 class="pairing-session-header">When?</h4>
-      <input type="datetime-local", value="">
-      <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
+      <div class="selector-card d-flex justify-content-around" data-action="" >
+        <div class=""><h1 data-action="new-session#setTime" data-new-session-target="now">Now</h1></div>
+      </div>
+      <div class="selector-card d-flex justify-content-around" data-action="" >
+        <div class=""><h1 data-action="new-session#setTime" data-new-session-target="tonight">Tonight</h1></div>
+      </div>
+      <div class="selector-card d-flex justify-content-around" data-action="" >
+        <div class=""><h1 data-action="new-session#setTime" data-new-session-target="tomorrow">Tommorow</h1></div>
+      </div>
+      <div class="time-form">
+        <input type="datetime-local", value="">
+        <button data-action="click->new-session#displayAddress" class="btn profile-btn mb-3">Choose</button>
+      </div>
     </div>
   </div>
 

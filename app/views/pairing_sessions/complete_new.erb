@@ -3,8 +3,10 @@
       <%= f.input :activity, class: "d-none", value: params[:activity] %>
       <%= f.input :address, class: "d-none", value: params[:address] %>
       <%= f.input :datetime, class: "d-none", value: params[:time] %>
-      <p>No current activities at the moment. Who don't you start your own? Give a quick description of the activity get started!</p>
-      <%= f.input :description %>
-      <%= f.submit 'Start pairing!', class: "btn profile-btn" %>
+      <div class="empty-sessions">
+        <h3>No current activities at the moment. Who don't you start your own? Give a quick description of the activity get started!</h3>
+        <%= f.input :description %>
+        <%= f.submit 'Find a partner!', class: "btn profile-btn" %>
+      </div>
   <% end %>
 </div>

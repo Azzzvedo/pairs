@@ -36,15 +36,17 @@
 
   </div>
 <% else %>
-  <p>No activities match your selection at the moment. Why don't you start your own? Give a quick description of your activity and get started!</p>
-    <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %>
-    <div class="d-none">
-      <%= f.input :activity %>
-      <%= f.input :address %>
-      <%= f.input :datetime, html5: true %>
-    </div>
-    <%= f.input :description %>
-    <%= f.submit 'Start pairing!', class: "btn profile-btn" %>
+  <div class="empty-sessions">
+    <h3>Looks like there aren't any existing sessions at the moment, but fear not..! You can create a session and someone else can join!</h3>
+      <%= simple_form_for pairing_session, data: {newsession_target: "newForm"} do |f| %>
+      <div class="d-none">
+        <%= f.input :activity %>
+        <%= f.input :address %>
+        <%= f.input :datetime, html5: true %>
+      </div>
+      <%= f.input :description, label: false %>
+      <%= f.submit 'Create a session', class: "btn profile-btn" %>
+    <% end %>
+  </div>
   <% end %>
- <% end %>
 <% end %>

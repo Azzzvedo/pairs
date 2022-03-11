@@ -42,7 +42,14 @@ export default class extends Controller {
     console.log(data)
     this.messagesTarget.insertAdjacentHTML("beforeend", data)
     this.messagesTarget.scrollTo(0, this.messagesTarget.scrollHeight)
-    this.formTarget.scrollIntoView()
+    const senderId = parseInt(data.split("data-sender-id=")[1].split(">"))
+    console.log(`Sender ->  ${senderId}`)
+    const currentUserId = this.element.dataset.currentUserId
+    console.log(typeof currentUserId)
     this.styleMessages()
+    if (currentUserId == senderId) {
+      this.formTarget.reset()
+    }
+    this.formTarget.scrollIntoView()
   }
 }

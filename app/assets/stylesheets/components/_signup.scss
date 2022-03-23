@@ -1,17 +1,9 @@
 .total-container {
   // position: absolute;
   // left: 23%;
-  background-color: white !important;
-}
-
-.container-fluid {
   text-align: center;
-  margin: 0;
   color: white;
-  padding-left: 0 !important;
   background-color: $mint;
-  // position: absolute;
-  // transform: translate(-50%, -50%);
 }
 
 .sign-in {
@@ -26,10 +18,4 @@
     li {
       margin-top: 16px;
     }
-}
-
-.sign-in-btns {
-  position: absolute;
-  left: 25%;
-  bottom: 8%;
 }
